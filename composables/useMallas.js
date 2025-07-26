@@ -5,6 +5,21 @@ const globalAvailableMallas = ref([])
 let isLoading = false
 
 export const useMallas = () => {
+  // Obtener la configuración del runtime de Nuxt
+  const config = useRuntimeConfig()
+  const baseURL = config.app?.baseURL || '/'
+  
+  // Función helper para construir URLs correctas
+  const buildURL = (path) => {
+    // Asegurar que path comience con /
+    if (!path.startsWith('/')) {
+      path = '/' + path
+    }
+    // Si baseURL termina con /, no duplicar
+    const cleanBaseURL = baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL
+    return cleanBaseURL + path
+  }
+  
   // Cargar dinámicamente las mallas disponibles
   const loadAvailableMallas = async () => {
     if (isLoading) return globalAvailableMallas.value
@@ -18,7 +33,9 @@ export const useMallas = () => {
       // Estrategia 1: Intentar cargar desde index.json (lista manual actualizable)
       try {
         console.log('Intentando cargar index.json...')
-        const indexResponse = await fetch('/mallas/index.json')
+        const indexURL = buildURL('/mallas/index.json')
+        console.log('URL del index:', indexURL)
+        const indexResponse = await fetch(indexURL)
         if (indexResponse.ok) {
           const indexData = await indexResponse.json()
           console.log('Index.json cargado:', indexData)
@@ -36,8 +53,9 @@ export const useMallas = () => {
       for (const file of mallasFiles) {
         try {
           console.log(`Cargando archivo: ${file}`)
-          // En Nuxt, los archivos en public/ se sirven desde la raíz
-          const url = `/mallas/${file}`
+          // Construir URL correcta con baseURL
+          const url = buildURL(`/mallas/${file}`)
+          console.log(`URL completa: ${url}`)
           const response = await fetch(url)
           
           if (response.ok) {
@@ -95,8 +113,8 @@ export const useMallas = () => {
     }
     
     try {
-      // En Nuxt, los archivos en public/ se sirven desde la raíz
-      const url = `/mallas/${carreraValue}.json`
+      // Construir URL correcta con baseURL
+      const url = buildURL(`/mallas/${carreraValue}.json`)
       console.log('Intentando cargar URL:', url) // Debug
       
       const response = await fetch(url)
