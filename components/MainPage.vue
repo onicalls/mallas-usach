@@ -1,0 +1,303 @@
+<template>
+  <div class="main-container">
+    <!-- Selector de carrera -->
+    <CarreraSelector 
+      :selected-carrera="selectedCarrera"
+      :available-mallas="availableMallas"
+      :is-simulating="isSimulating"
+      :is-editing="isEditing"
+      @carrera-changed="onCarreraChanged"
+      @toggle-simulate="toggleSimulate"
+      @toggle-edit="toggleEdit"
+    />
+
+    <!-- Tabla de malla curricular -->
+    <MallaTable 
+      v-if="mallaData && selectedCarrera !== 'personalizado'"
+      :malla-data="mallaData"
+      :selected-materia="selectedMateria"
+      :enabled-materias="enabledMaterias"
+      :prerequisite-materias="prerequisiteMaterias"
+      :is-simulating="isSimulating"
+      :approved-materias="approvedMaterias"
+      @materia-selected="selectMateria"
+    />
+    
+    <!-- Tabla de malla personalizada -->
+    <CustomMallaTable 
+      v-if="mallaData && selectedCarrera === 'personalizado' && isEditing"
+      :malla-data="mallaData"
+      :selected-materia="selectedMateria"
+      :enabled-materias="enabledMaterias"
+      :prerequisite-materias="prerequisiteMaterias"
+      :is-simulating="isSimulating"
+      :approved-materias="approvedMaterias"
+      @materia-selected="selectMateria"
+      @malla-updated="updateCustomMalla"
+    />
+    
+    <!-- Tabla de malla normal (para personalizada en modo no-editable) -->
+    <MallaTable 
+      v-if="mallaData && selectedCarrera === 'personalizado' && !isEditing"
+      :malla-data="mallaData"
+      :selected-materia="selectedMateria"
+      :enabled-materias="enabledMaterias"
+      :prerequisite-materias="prerequisiteMaterias"
+      :is-simulating="isSimulating"
+      :approved-materias="approvedMaterias"
+      @materia-selected="selectMateria"
+    />
+    
+    <!-- Leyenda -->
+    <MallaLegend 
+      v-if="mallaData"
+      :is-simulating="isSimulating"
+    />
+  </div>
+</template>
+
+<script>
+import CarreraSelector from './CarreraSelector.vue'
+import MallaTable from './MallaTable.vue'
+import MallaLegend from './MallaLegend.vue'
+import CustomMallaTable from './CustomMallaTable.vue'
+
+export default {
+  name: 'MainPage',
+  components: {
+    CarreraSelector,
+    MallaTable,
+    MallaLegend,
+    CustomMallaTable
+  },
+  data() {
+    return {
+      selectedCarrera: '',
+      mallaData: null,
+      selectedMateria: null,
+      enabledMaterias: [],
+      prerequisiteMaterias: [],
+      isSimulating: false,
+      approvedMaterias: [],
+      isEditing: true
+    }
+  },
+  setup() {
+    // Usar una sola instancia del composable
+    const mallasComposable = useMallas()
+    
+    return {
+      mallasComposable
+    }
+  },
+  computed: {
+    availableMallas() {
+      return this.mallasComposable.availableMallas.value || []
+    }
+  },
+  async mounted() {
+    // Las mallas ya se cargan automáticamente en el composable
+    // pero podemos forzar la carga si es necesario
+    await this.mallasComposable.loadAvailableMallas()
+  },
+  methods: {
+    onCarreraChanged(carrera) {
+      this.selectedCarrera = carrera
+      this.loadMallaData()
+    },
+    async loadMallaData() {
+      this.mallaData = await this.mallasComposable.loadMallaData(this.selectedCarrera)
+      // Resetear selección cuando se cambie la malla
+      this.selectedMateria = null
+      this.enabledMaterias = []
+      this.prerequisiteMaterias = []
+      this.approvedMaterias = []
+      this.isSimulating = false
+      this.isEditing = true
+    },
+    getCarreraTitle(carreraValue) {
+      return this.mallasComposable.getCarreraTitle(carreraValue)
+    },
+    selectMateria(materia) {
+      const [nombre, codigo, habilita] = materia
+      
+      if (this.isSimulating) {
+        // Modo simulación: lógica de dos pasos
+        if (this.approvedMaterias.includes(codigo)) {
+          // Si ya está aprobada, desaprobarla
+          this.approvedMaterias = this.approvedMaterias.filter(c => c !== codigo)
+          this.selectedMateria = null
+          this.prerequisiteMaterias = []
+        } else if (this.selectedMateria === codigo) {
+          // Si está seleccionada, aprobarla (segundo clic)
+          this.approvedMaterias.push(codigo)
+          this.selectedMateria = null
+          this.prerequisiteMaterias = []
+        } else {
+          // Primer clic: seleccionar y mostrar prerrequisitos
+          this.selectedMateria = codigo
+          this.prerequisiteMaterias = this.findPrerequisites(codigo)
+        }
+        
+        // Calcular materias habilitadas basado en las aprobadas
+        this.calculateEnabledFromApproved()
+      } else {
+        // Modo normal: selección temporal
+        if (this.selectedMateria === codigo) {
+          this.clearSelection()
+          return
+        }
+        
+        this.selectedMateria = codigo
+        
+        if (habilita && Array.isArray(habilita)) {
+          this.enabledMaterias = [...habilita]
+        } else {
+          this.enabledMaterias = []
+        }
+        
+        this.prerequisiteMaterias = this.findPrerequisites(codigo)
+      }
+      
+      console.log(`${this.isSimulating ? 'Simulación' : 'Selección'}: ${nombre} (${codigo})`)
+    },
+    clearSelection() {
+      this.selectedMateria = null
+      this.enabledMaterias = []
+      this.prerequisiteMaterias = []
+    },
+    toggleSimulate() {
+      this.isSimulating = !this.isSimulating
+      this.clearSelection()
+      
+      if (this.isSimulating) {
+        // Al activar simulación, mostrar materias sin prerrequisitos como habilitadas
+        this.showMateriasWithoutPrerequisites()
+        // También calcular habilitadas basado en aprobadas (en caso de que ya haya algunas)
+        this.calculateEnabledFromApproved()
+      } else {
+        // Al desactivar simulación, limpiar aprobadas
+        this.approvedMaterias = []
+      }
+    },
+    toggleEdit() {
+      this.isEditing = !this.isEditing
+      // Al cambiar de modo, limpiar selecciones
+      this.clearSelection()
+    },
+    showMateriasWithoutPrerequisites() {
+      if (!this.mallaData) return
+      
+      const materiasWithoutPrereqs = []
+      
+      // Recorrer todas las materias para encontrar las que no tienen prerrequisitos
+      for (const nivel in this.mallaData) {
+        const materias = this.mallaData[nivel]
+        
+        for (const materia of materias) {
+          const [nombre, codigo, habilita] = materia
+          
+          // Encontrar prerrequisitos de esta materia
+          const prerequisitos = this.findPrerequisites(codigo)
+          
+          // Si no tiene prerrequisitos, agregarla a la lista de habilitadas
+          if (prerequisitos.length === 0) {
+            materiasWithoutPrereqs.push(codigo)
+          }
+        }
+      }
+      
+      this.enabledMaterias = materiasWithoutPrereqs
+    },
+    calculateEnabledFromApproved() {
+      if (!this.mallaData) return
+      
+      const allEnabled = new Set()
+      
+      // Recorrer todas las materias para verificar cuáles pueden habilitarse
+      for (const nivel in this.mallaData) {
+        const materias = this.mallaData[nivel]
+        
+        for (const materia of materias) {
+          const [nombre, codigo, habilita] = materia
+          
+          // Solo procesar materias que no están ya aprobadas
+          if (!this.approvedMaterias.includes(codigo)) {
+            // Encontrar todos los prerrequisitos de esta materia
+            const prerequisitos = this.findPrerequisites(codigo)
+            
+            // Si la materia no tiene prerrequisitos, siempre está habilitada en modo simulación
+            if (prerequisitos.length === 0) {
+              allEnabled.add(codigo)
+            }
+            // Si la materia tiene prerrequisitos, verificar que TODOS estén aprobados
+            else {
+              const todosPrerequisitosAprobados = prerequisitos.every(prereq => 
+                this.approvedMaterias.includes(prereq)
+              )
+              
+              // Solo habilitar si todos los prerrequisitos están aprobados
+              if (todosPrerequisitosAprobados) {
+                allEnabled.add(codigo)
+              }
+            }
+          }
+        }
+      }
+      
+      this.enabledMaterias = Array.from(allEnabled)
+    },
+    getMateriaNombre(codigo) {
+      if (!this.mallaData) return ''
+      
+      for (const nivel in this.mallaData) {
+        const materia = this.mallaData[nivel].find(m => m[1] === codigo)
+        if (materia) {
+          return materia[0]
+        }
+      }
+      return codigo
+    },
+    updateCustomMalla(updatedMalla) {
+      this.mallaData = updatedMalla
+      // Resetear estados cuando se modifica la malla
+      this.selectedMateria = null
+      this.enabledMaterias = []
+      this.prerequisiteMaterias = []
+      
+      // Si está en modo simulación, recalcular materias habilitadas
+      if (this.isSimulating) {
+        this.showMateriasWithoutPrerequisites()
+        this.calculateEnabledFromApproved()
+      }
+    },
+    findPrerequisites(codigoSeleccionado) {
+      if (!this.mallaData) return []
+      
+      const prerequisites = []
+      
+      // Buscar en todos los niveles
+      for (const nivel in this.mallaData) {
+        const materias = this.mallaData[nivel]
+        
+        for (const materia of materias) {
+          const [nombre, codigo, habilita] = materia
+          
+          // Si esta materia habilita la seleccionada, agregarla a prerequisites
+          if (habilita && Array.isArray(habilita) && habilita.includes(codigoSeleccionado)) {
+            prerequisites.push(codigo)
+          }
+        }
+      }
+      
+      return prerequisites
+    }
+  }
+}
+</script>
+
+<style scoped>
+.main-container {
+  width: 100%;
+}
+</style>

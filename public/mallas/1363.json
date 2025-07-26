@@ -1,0 +1,464 @@
+{
+  "info": {
+    "codigo": "1363",
+    "nombre": "INGENIERIA CIVIL INFORMATICA",
+    "departamento": "INFORMÁTICA"
+  },
+  "malla": {
+    "n1": [
+      [
+        "CÁLCULO I PARA INGENIERÍA",
+        "10101",
+        [
+          "10107",
+          "10116"
+        ]
+      ],
+      [
+        "ÁLGEBRA I PARA INGENIERÍA",
+        "10102",
+        [
+          "10108",
+          "10110"
+        ]
+      ],
+      [
+        "FÍSICA I PARA INGENIERÍA",
+        "10103",
+        [
+          "10109"
+        ]
+      ],
+      [
+        "TALLER DE DESARROLLO PERSONAL E INTEGRAL",
+        "10104",
+        [
+          "10128"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN A LA INGENIERÍA",
+        "10125",
+        [
+          "13279"
+        ]
+      ],
+      [
+        "MÉTODOS DE ESTUDIO",
+        "10126",
+        [
+          "10130"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "CÁLCULO II PARA INGENIERÍA",
+        "10107",
+        [
+          "10115",
+          "10129",
+          "10122",
+          "10127"
+        ]
+      ],
+      [
+        "ÁLGEBRA II PARA INGENIERÍA",
+        "10108",
+        [
+          "10122",
+          "13278"
+        ]
+      ],
+      [
+        "FÍSICA II PARA INGENIERÍA",
+        "10109",
+        [
+          "10127"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE COMPUTACIÓN Y PROGRAMACIÓN",
+        "10110",
+        [
+          "13201"
+        ]
+      ],
+      [
+        "QUÍMICA GENERAL",
+        "10111",
+        []
+      ]
+    ],
+    "n3": [
+      [
+        "FUNDAMENTOS DE ECONOMÍA",
+        "10116",
+        [
+          "13219",
+          "13224"
+        ]
+      ],
+      [
+        "ECUACIONES DIFERENCIALES PARA INGENIERIA",
+        "10122",
+        [
+          "13282"
+        ]
+      ],
+      [
+        "ELECTRICIDAD Y MAGNETISMO PARA INGENIERÍA",
+        "10127",
+        [
+          "13278"
+        ]
+      ],
+      [
+        "COMUNICACIÓN EFECTIVA",
+        "10128",
+        [
+          "13214"
+        ]
+      ],
+      [
+        "INGLÉS I",
+        "10130",
+        [
+          "10131"
+        ]
+      ],
+      [
+        "MÉTODOS DE PROGRAMACIÓN",
+        "13201",
+        [
+          "13204",
+          "13205"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "ANÁLISIS ESTADÍSTICO PARA INGENIERÍA",
+        "10115",
+        [
+          "13279",
+          "13283"
+        ]
+      ],
+      [
+        "CALCULO III PARA INGENIERÍA",
+        "10129",
+        [
+          "13282",
+          "13221"
+        ]
+      ],
+      [
+        "INGLÉS II",
+        "10131",
+        [
+          "10132"
+        ]
+      ],
+      [
+        "PARADIGMAS DE PROGRAMACIÓN",
+        "13204",
+        [
+          "13209",
+          "13210",
+          "13280"
+        ]
+      ],
+      [
+        "ANÁLISIS DE ALGORITMOS Y ESTRUCTURA DE DATOS",
+        "13205",
+        [
+          "13210",
+          "13213"
+        ]
+      ],
+      [
+        "ESTRUCTURA DE COMPUTADORES",
+        "13278",
+        [
+          "13281"
+        ]
+      ]
+    ],
+    "n5": [
+      [
+        "INGLÉS III",
+        "10132",
+        [
+          "10133"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE INGENIERÍA DE SOFTWARE",
+        "13209",
+        [
+          "13215",
+          "13220"
+        ]
+      ],
+      [
+        "ALGORITMOS AVANZADOS",
+        "13210",
+        [
+          "13221"
+        ]
+      ],
+      [
+        "INGENIERÍA DE SISTEMAS",
+        "13279",
+        [
+          "13214"
+        ]
+      ],
+      [
+        "DISEÑO DE BASE DE DATOS",
+        "13280",
+        [
+          "13215"
+        ]
+      ],
+      [
+        "ORGANIZACIÓN DE COMPUTADORES",
+        "13281",
+        [
+          "13212",
+          "13217"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "INGLÉS IV",
+        "10133",
+        []
+      ],
+      [
+        "SISTEMAS OPERATIVOS",
+        "13212",
+        []
+      ],
+      [
+        "PROCESAMIENTO DE LENGUAJES FORMALES",
+        "13213",
+        [
+          "13284"
+        ]
+      ],
+      [
+        "ANTROPOLOGÍA E INGENIERÍA",
+        "13214",
+        [
+          "13219"
+        ]
+      ],
+      [
+        "TALLER DE BASES DE DATOS",
+        "13215",
+        [
+          "13230"
+        ]
+      ],
+      [
+        "ALGORITMOS NUMÉRICOS",
+        "13282",
+        [
+          "13227"
+        ]
+      ]
+    ],
+    "n7": [
+      [
+        "REDES DE COMPUTADORES",
+        "13217",
+        [
+          "13223"
+        ]
+      ],
+      [
+        "MACROECONOMÍA Y GLOBALIZACIÓN",
+        "13219",
+        [
+          "13226"
+        ]
+      ],
+      [
+        "MÉTODOS DE INGENIERÍA DE SOFTWARE",
+        "13220",
+        [
+          "13225"
+        ]
+      ],
+      [
+        "INFERENCIA Y MODELOS ESTADÍSTICOS",
+        "13283",
+        [
+          "13222"
+        ]
+      ],
+      [
+        "LÓGICA Y TEORÍA DE LA COMPUTACIÓN",
+        "13284",
+        []
+      ]
+    ],
+    "n8": [
+      [
+        "MÉTODOS DE OPTIMIZACIÓN",
+        "13221",
+        []
+      ],
+      [
+        "ANÁLISIS DE DATOS",
+        "13222",
+        []
+      ],
+      [
+        "SISTEMAS DE COMUNICACIÓN",
+        "13223",
+        [
+          "13228",
+          "13234"
+        ]
+      ],
+      [
+        "FINANZAS Y CONTABILIDAD",
+        "13224",
+        [
+          "13229",
+          "13239"
+        ]
+      ],
+      [
+        "ADMINISTRACIÓN DE PROYECTOS DE SOFTWARE",
+        "13225",
+        [
+          "13230"
+        ]
+      ]
+    ],
+    "n9": [
+      [
+        "INGENIERÍA Y SOCIEDAD",
+        "13226",
+        [
+          "13232",
+          "13239"
+        ]
+      ],
+      [
+        "MODELACIÓN Y SIMULACIÓN",
+        "13227",
+        [
+          "13232"
+        ]
+      ],
+      [
+        "SISTEMAS DISTRIBUIDOS",
+        "13228",
+        [
+          "13231",
+          "13233"
+        ]
+      ],
+      [
+        "EVALUACIÓN DE PROYECTOS",
+        "13229",
+        [
+          "13231",
+          "13232",
+          "13233",
+          "13235"
+        ]
+      ],
+      [
+        "TALLER DE INGENIERÍA DE SOFTWARE",
+        "13230",
+        [
+          "13231",
+          "13233",
+          "13235"
+        ]
+      ]
+    ],
+    "n10": [
+      [
+        "TÓPICOS DE ESPECIALIDAD I",
+        "13231",
+        [
+          "13236"
+        ]
+      ],
+      [
+        "TÓPICOS DE ESPECIALIDAD II",
+        "13232",
+        [
+          "13237",
+          "13238"
+        ]
+      ],
+      [
+        "TÓPICOS DE ESPECIALIDAD III",
+        "13233",
+        [
+          "13237",
+          "13238"
+        ]
+      ],
+      [
+        "SEGURIDAD Y AUDITORÍA INFORMÁTICA",
+        "13234",
+        [
+          "13236"
+        ]
+      ],
+      [
+        "PROYECTO DE INGENIERÍA INFORMÁTICA",
+        "13235",
+        [
+          "13285"
+        ]
+      ]
+    ],
+    "n11": [
+      [
+        "TÓPICOS DE ESPECIALIDAD IV",
+        "13236",
+        []
+      ],
+      [
+        "TÓPICOS DE ESPECIALIDAD V",
+        "13237",
+        []
+      ],
+      [
+        "TÓPICOS DE ESPECIALIDAD VI",
+        "13238",
+        []
+      ],
+      [
+        "DIRECCIÓN Y GESTIÓN DE EMPRESAS",
+        "13239",
+        []
+      ],
+      [
+        "SEMINARIO DE INFORMÁTICA",
+        "13285",
+        [
+          "13286"
+        ]
+      ]
+    ],
+    "n12": [
+      [
+        "TRABAJO DE TITULACIÓN",
+        "13286",
+        []
+      ]
+    ]
+  }
+}
