@@ -4,6 +4,9 @@ import { ref } from 'vue'
 const globalAvailableMallas = ref([])
 let isLoading = false
 
+// Caché global para el estado de simulación por malla
+const simulationCache = ref(new Map())
+
 export const useMallas = () => {
   // Obtener la configuración del runtime de Nuxt
   const config = useRuntimeConfig()
@@ -145,6 +148,80 @@ export const useMallas = () => {
     } : null
   }
 
+  // Funciones para manejar el caché de simulación
+  const getSimulationState = (mallaId) => {
+    if (!mallaId) return { approvedMaterias: [], isSimulating: false }
+    
+    if (!simulationCache.value.has(mallaId)) {
+      simulationCache.value.set(mallaId, {
+        approvedMaterias: [],
+        isSimulating: false
+      })
+    }
+    
+    return simulationCache.value.get(mallaId)
+  }
+  
+  const updateSimulationState = (mallaId, newState) => {
+    if (!mallaId) return
+    
+    const currentState = getSimulationState(mallaId)
+    const updatedState = { ...currentState, ...newState }
+    simulationCache.value.set(mallaId, updatedState)
+    
+    // Guardar en localStorage para persistencia
+    try {
+      localStorage.setItem(`malla_simulation_${mallaId}`, JSON.stringify(updatedState))
+    } catch (error) {
+      console.warn('No se pudo guardar en localStorage:', error)
+    }
+  }
+  
+  const loadSimulationFromStorage = (mallaId) => {
+    if (!mallaId) return
+    
+    try {
+      const stored = localStorage.getItem(`malla_simulation_${mallaId}`)
+      if (stored) {
+        const state = JSON.parse(stored)
+        simulationCache.value.set(mallaId, state)
+        return state
+      }
+    } catch (error) {
+      console.warn('No se pudo cargar desde localStorage:', error)
+    }
+    
+    return getSimulationState(mallaId)
+  }
+  
+  const clearSimulationCache = (mallaId = null) => {
+    if (mallaId) {
+      // Limpiar caché de una malla específica
+      simulationCache.value.delete(mallaId)
+      try {
+        localStorage.removeItem(`malla_simulation_${mallaId}`)
+      } catch (error) {
+        console.warn('No se pudo limpiar localStorage:', error)
+      }
+    } else {
+      // Limpiar todo el caché
+      simulationCache.value.clear()
+      try {
+        // Limpiar todas las claves de simulación del localStorage
+        const keysToRemove = []
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i)
+          if (key && key.startsWith('malla_simulation_')) {
+            keysToRemove.push(key)
+          }
+        }
+        keysToRemove.forEach(key => localStorage.removeItem(key))
+      } catch (error) {
+        console.warn('No se pudo limpiar localStorage:', error)
+      }
+    }
+  }
+
   // No inicializar automáticamente aquí para evitar problemas de contexto
   // La inicialización se hará desde el componente
 
@@ -153,6 +230,11 @@ export const useMallas = () => {
     loadMallaData,
     getCarreraTitle,
     getCarreraInfo,
-    loadAvailableMallas
+    loadAvailableMallas,
+    // Funciones de caché de simulación
+    getSimulationState,
+    updateSimulationState,
+    loadSimulationFromStorage,
+    clearSimulationCache
   }
 }

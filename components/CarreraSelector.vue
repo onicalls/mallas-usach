@@ -34,6 +34,17 @@
       </div>
     </div>
     
+    <!-- Botón para limpiar simulación - Solo aparece cuando está simulando -->
+    <div v-if="selectedCarrera && selectedCarrera !== 'personalizado' && isSimulating" class="clear-simulation-container">
+      <button 
+        @click="$emit('clear-simulation')" 
+        class="clear-simulation-btn"
+        title="Limpiar progreso de simulación para esta malla"
+      >
+        🗑️ Limpiar Simulación
+      </button>
+    </div>
+    
   </div>
 </template>
 
@@ -161,5 +172,36 @@ export default {
   outline: none;
   border-color: #007a3d;
   box-shadow: 0 0 0 3px rgba(0, 145, 73, 0.2);
+}
+
+.clear-simulation-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clear-simulation-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 2px solid #dc3545;
+  border-radius: 6px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clear-simulation-btn:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.clear-simulation-btn:active {
+  transform: translateY(0);
 }
 </style>

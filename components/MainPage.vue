@@ -9,6 +9,7 @@
       @carrera-changed="onCarreraChanged"
       @toggle-simulate="toggleSimulate"
       @toggle-edit="toggleEdit"
+      @clear-simulation="clearCurrentSimulationCache"
     />
 
     <!-- Tabla de malla curricular -->
@@ -61,6 +62,7 @@ import CarreraSelector from './CarreraSelector.vue'
 import MallaTable from './MallaTable.vue'
 import MallaLegend from './MallaLegend.vue'
 import CustomMallaTable from './CustomMallaTable.vue'
+import { useMallas } from '~/composables/useMallas.js'
 
 export default {
   name: 'MainPage',
@@ -107,12 +109,26 @@ export default {
     },
     async loadMallaData() {
       this.mallaData = await this.mallasComposable.loadMallaData(this.selectedCarrera)
+      
+      // Cargar estado de simulación del caché para esta malla
+      if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
+        const cachedState = this.mallasComposable.loadSimulationFromStorage(this.selectedCarrera)
+        this.isSimulating = cachedState.isSimulating || false
+        this.approvedMaterias = [...(cachedState.approvedMaterias || [])]
+        
+        if (this.isSimulating) {
+          this.calculateEnabledFromApproved()
+        }
+      } else {
+        // Para malla personalizada, resetear estado
+        this.isSimulating = false
+        this.approvedMaterias = []
+      }
+      
       // Resetear selección cuando se cambie la malla
       this.selectedMateria = null
-      this.enabledMaterias = []
+      this.enabledMaterias = this.isSimulating ? this.enabledMaterias : []
       this.prerequisiteMaterias = []
-      this.approvedMaterias = []
-      this.isSimulating = false
       this.isEditing = true
     },
     getCarreraTitle(carreraValue) {
@@ -141,6 +157,14 @@ export default {
         
         // Calcular materias habilitadas basado en las aprobadas
         this.calculateEnabledFromApproved()
+        
+        // Guardar estado en caché después de cada cambio
+        if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
+          this.mallasComposable.updateSimulationState(this.selectedCarrera, {
+            isSimulating: this.isSimulating,
+            approvedMaterias: this.approvedMaterias
+          })
+        }
       } else {
         // Modo normal: selección temporal
         if (this.selectedMateria === codigo) {
@@ -178,6 +202,14 @@ export default {
       } else {
         // Al desactivar simulación, limpiar aprobadas
         this.approvedMaterias = []
+      }
+      
+      // Guardar estado en caché
+      if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
+        this.mallasComposable.updateSimulationState(this.selectedCarrera, {
+          isSimulating: this.isSimulating,
+          approvedMaterias: this.approvedMaterias
+        })
       }
     },
     toggleEdit() {
@@ -291,6 +323,17 @@ export default {
       }
       
       return prerequisites
+    },
+    // Método para limpiar caché de simulación de la malla actual
+    clearCurrentSimulationCache() {
+      if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
+        this.mallasComposable.clearSimulationCache(this.selectedCarrera)
+        // Resetear estado local
+        this.approvedMaterias = []
+        this.isSimulating = false
+        this.clearSelection()
+        this.calculateEnabledFromApproved()
+      }
     }
   }
 }
