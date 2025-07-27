@@ -149,6 +149,32 @@ export const useMallas = () => {
   }
 
   // Funciones para manejar el caché de simulación
+  const checkLocalStorageQuota = () => {
+    try {
+      const test = 'localStorage_test'
+      localStorage.setItem(test, test)
+      localStorage.removeItem(test)
+      return true
+    } catch (e) {
+      console.warn('localStorage no está disponible o está lleno:', e)
+      return false
+    }
+  }
+  
+  const getLocalStorageSize = () => {
+    let total = 0
+    try {
+      for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+          total += localStorage[key].length + key.length
+        }
+      }
+      return Math.round(total / 1024) // KB
+    } catch (e) {
+      return 0
+    }
+  }
+  
   const getSimulationState = (mallaId) => {
     if (!mallaId) return { approvedMaterias: [], isSimulating: false }
     
@@ -169,21 +195,54 @@ export const useMallas = () => {
     const updatedState = { ...currentState, ...newState }
     simulationCache.value.set(mallaId, updatedState)
     
+    console.log(`Guardando estado de simulación para ${mallaId}:`, updatedState)
+    
     // Guardar en localStorage para persistencia
     try {
+      if (!checkLocalStorageQuota()) {
+        throw new Error('localStorage no disponible')
+      }
+      
+      const storageSize = getLocalStorageSize()
+      console.log(`Tamaño actual del localStorage: ${storageSize} KB`)
+      
       localStorage.setItem(`malla_simulation_${mallaId}`, JSON.stringify(updatedState))
+      console.log(`Estado guardado en localStorage para ${mallaId}`)
     } catch (error) {
       console.warn('No se pudo guardar en localStorage:', error)
+      if (error.name === 'QuotaExceededError') {
+        console.warn('localStorage lleno, limpiando datos antiguos...')
+        // Intentar limpiar datos antiguos y volver a intentar
+        try {
+          const keysToRemove = []
+          for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i)
+            if (key && key.startsWith('malla_simulation_') && key !== `malla_simulation_${mallaId}`) {
+              keysToRemove.push(key)
+            }
+          }
+          // Remover la mitad de los datos más antiguos
+          keysToRemove.slice(0, Math.ceil(keysToRemove.length / 2)).forEach(key => {
+            localStorage.removeItem(key)
+          })
+          // Intentar guardar de nuevo
+          localStorage.setItem(`malla_simulation_${mallaId}`, JSON.stringify(updatedState))
+          console.log(`Estado guardado después de limpiar localStorage para ${mallaId}`)
+        } catch (retryError) {
+          console.error('No se pudo guardar incluso después de limpiar:', retryError)
+        }
+      }
     }
   }
   
   const loadSimulationFromStorage = (mallaId) => {
-    if (!mallaId) return
+    if (!mallaId) return { approvedMaterias: [], isSimulating: false }
     
     try {
       const stored = localStorage.getItem(`malla_simulation_${mallaId}`)
       if (stored) {
         const state = JSON.parse(stored)
+        console.log(`Cargando estado de simulación para ${mallaId}:`, state)
         simulationCache.value.set(mallaId, state)
         return state
       }
@@ -191,7 +250,10 @@ export const useMallas = () => {
       console.warn('No se pudo cargar desde localStorage:', error)
     }
     
-    return getSimulationState(mallaId)
+    // Si no hay datos guardados, devolver estado inicial
+    const initialState = { approvedMaterias: [], isSimulating: false }
+    simulationCache.value.set(mallaId, initialState)
+    return initialState
   }
   
   const clearSimulationCache = (mallaId = null) => {
@@ -235,6 +297,9 @@ export const useMallas = () => {
     getSimulationState,
     updateSimulationState,
     loadSimulationFromStorage,
-    clearSimulationCache
+    clearSimulationCache,
+    // Funciones de diagnóstico
+    checkLocalStorageQuota,
+    getLocalStorageSize
   }
 }
