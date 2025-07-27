@@ -101,7 +101,7 @@ export default {
     // Guardar automáticamente cuando cambien las materias aprobadas
     approvedMaterias: {
       handler(newVal, oldVal) {
-        if (this.selectedCarrera && this.selectedCarrera !== 'personalizado' && this.isSimulating) {
+        if (this.selectedCarrera && this.isSimulating) {
           // Usar nextTick para asegurar que todos los cambios se hayan aplicado
           this.$nextTick(() => {
             this.saveCurrentSimulationState()
@@ -112,11 +112,22 @@ export default {
     },
     // Guardar cuando cambie el estado de simulación
     isSimulating(newVal, oldVal) {
-      if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
+      if (this.selectedCarrera) {
         this.$nextTick(() => {
           this.saveCurrentSimulationState()
         })
       }
+    },
+    // Guardar cuando cambie la estructura de la malla personalizada
+    mallaData: {
+      handler(newVal, oldVal) {
+        if (this.selectedCarrera === 'personalizado' && newVal) {
+          this.$nextTick(() => {
+            this.savePersonalizedData()
+          })
+        }
+      },
+      deep: true
     }
   },
   async mounted() {
@@ -149,8 +160,18 @@ export default {
         if (this.isSimulating) {
           this.calculateEnabledFromApproved()
         }
+      } else if (this.selectedCarrera === 'personalizado') {
+        // Para malla personalizada, cargar estado de simulación también
+        const cachedState = this.mallasComposable.loadSimulationFromStorage('personalizado')
+        console.log(`Cargando estado personalizado:`, cachedState)
+        this.isSimulating = cachedState.isSimulating || false
+        this.approvedMaterias = [...(cachedState.approvedMaterias || [])]
+        
+        if (this.isSimulating) {
+          this.calculateEnabledFromApproved()
+        }
       } else {
-        // Para malla personalizada, resetear estado
+        // Resetear estado si no hay carrera seleccionada
         this.isSimulating = false
         this.approvedMaterias = []
       }
@@ -215,20 +236,30 @@ export default {
       this.prerequisiteMaterias = []
     },
     toggleSimulate() {
+      // Guardar estado actual antes de cambiar
+      this.saveCurrentSimulationState()
+      
       this.isSimulating = !this.isSimulating
       this.clearSelection()
       
       if (this.isSimulating) {
-        // Al activar simulación, mostrar materias sin prerrequisitos como habilitadas
+        // Al activar simulación, cargar datos del caché
+        if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
+          const cachedState = this.mallasComposable.loadSimulationFromStorage(this.selectedCarrera)
+          this.approvedMaterias = [...(cachedState.approvedMaterias || [])]
+        }
+        // Mostrar materias sin prerrequisitos como habilitadas
         this.showMateriasWithoutPrerequisites()
-        // También calcular habilitadas basado en aprobadas (en caso de que ya haya algunas)
+        // También calcular habilitadas basado en aprobadas
         this.calculateEnabledFromApproved()
       } else {
-        // Al desactivar simulación, limpiar aprobadas
-        this.approvedMaterias = []
+        // Al desactivar simulación, NO limpiar aprobadas - mantener en caché
+        // Solo limpiar la visualización
+        this.enabledMaterias = []
       }
       
-      // El watcher se encargará de guardar automáticamente
+      // Guardar nuevo estado
+      this.saveCurrentSimulationState()
     },
     // Método para guardar el estado actual de simulación
     saveCurrentSimulationState() {
@@ -240,6 +271,24 @@ export default {
         console.log(`Guardando estado actual para ${this.selectedCarrera}:`, state)
         console.log(`LocalStorage size: ${this.mallasComposable.getLocalStorageSize()} KB`)
         this.mallasComposable.updateSimulationState(this.selectedCarrera, state)
+      } else if (this.selectedCarrera === 'personalizado') {
+        // Para malla personalizada, guardar tanto la estructura como la simulación
+        this.savePersonalizedData()
+      }
+    },
+    // Método para guardar datos de la malla personalizada
+    savePersonalizedData() {
+      if (this.selectedCarrera === 'personalizado' && this.mallaData) {
+        // Guardar estructura de la malla
+        this.mallasComposable.saveCustomMalla(this.mallaData)
+        
+        // Guardar estado de simulación usando una clave especial
+        const state = {
+          isSimulating: this.isSimulating,
+          approvedMaterias: [...this.approvedMaterias]
+        }
+        this.mallasComposable.updateSimulationState('personalizado', state)
+        console.log('💾 Datos personalizados guardados:', { malla: this.mallaData, simulacion: state })
       }
     },
     toggleEdit() {
@@ -322,6 +371,10 @@ export default {
     },
     updateCustomMalla(updatedMalla) {
       this.mallaData = updatedMalla
+      
+      // Guardar automáticamente la malla personalizada actualizada
+      this.savePersonalizedData()
+      
       // Resetear estados cuando se modifica la malla
       this.selectedMateria = null
       this.enabledMaterias = []
@@ -359,6 +412,21 @@ export default {
       if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
         this.mallasComposable.clearSimulationCache(this.selectedCarrera)
         // Resetear estado local
+        this.approvedMaterias = []
+        this.isSimulating = false
+        this.clearSelection()
+        this.calculateEnabledFromApproved()
+      } else if (this.selectedCarrera === 'personalizado') {
+        // Para malla personalizada, limpiar tanto la simulación como la estructura
+        this.mallasComposable.clearSimulationCache('personalizado')
+        this.mallasComposable.clearCustomMalla()
+        
+        // Resetear a estructura base
+        this.mallaData = {
+          n1: [
+            ['MATERIA DE EJEMPLO', 'XXXXX', []]
+          ]
+        }
         this.approvedMaterias = []
         this.isSimulating = false
         this.clearSelection()

@@ -35,13 +35,13 @@
     </div>
     
     <!-- Botón para limpiar simulación - Solo aparece cuando está simulando -->
-    <div v-if="selectedCarrera && selectedCarrera !== 'personalizado' && isSimulating" class="clear-simulation-container">
+    <div v-if="selectedCarrera && isSimulating" class="clear-simulation-container">
       <button 
         @click="$emit('clear-simulation')" 
         class="clear-simulation-btn"
-        title="Limpiar progreso de simulación para esta malla"
+        :title="selectedCarrera === 'personalizado' ? 'Limpiar malla personalizada y simulación' : 'Limpiar progreso de simulación para esta malla'"
       >
-        🗑️ Limpiar Simulación
+        🗑️ {{ selectedCarrera === 'personalizado' ? 'Limpiar Todo' : 'Limpiar Simulación' }}
       </button>
     </div>
     

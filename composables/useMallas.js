@@ -106,13 +106,9 @@ export const useMallas = () => {
   const loadMallaData = async (carreraValue) => {
     if (!carreraValue) return null
     
-    // Si es personalizado, devolver estructura base
+    // Si es personalizado, cargar desde localStorage o devolver estructura base
     if (carreraValue === 'personalizado') {
-      return {
-        n1: [
-          ['MATERIA DE EJEMPLO', 'XXXXX', []]
-        ]
-      }
+      return loadCustomMalla()
     }
     
     try {
@@ -195,7 +191,10 @@ export const useMallas = () => {
     const updatedState = { ...currentState, ...newState }
     simulationCache.value.set(mallaId, updatedState)
     
-    console.log(`Guardando estado de simulación para ${mallaId}:`, updatedState)
+    console.log(`🔄 Actualizando estado de simulación para ${mallaId}:`)
+    console.log(`   Estado anterior:`, currentState)
+    console.log(`   Nuevos datos:`, newState)  
+    console.log(`   Estado final:`, updatedState)
     
     // Guardar en localStorage para persistencia
     try {
@@ -204,10 +203,10 @@ export const useMallas = () => {
       }
       
       const storageSize = getLocalStorageSize()
-      console.log(`Tamaño actual del localStorage: ${storageSize} KB`)
+      console.log(`📊 Tamaño actual del localStorage: ${storageSize} KB`)
       
       localStorage.setItem(`malla_simulation_${mallaId}`, JSON.stringify(updatedState))
-      console.log(`Estado guardado en localStorage para ${mallaId}`)
+      console.log(`💾 Estado guardado en localStorage para ${mallaId}`)
     } catch (error) {
       console.warn('No se pudo guardar en localStorage:', error)
       if (error.name === 'QuotaExceededError') {
@@ -242,9 +241,11 @@ export const useMallas = () => {
       const stored = localStorage.getItem(`malla_simulation_${mallaId}`)
       if (stored) {
         const state = JSON.parse(stored)
-        console.log(`Cargando estado de simulación para ${mallaId}:`, state)
+        console.log(`📤 Cargando estado de simulación para ${mallaId}:`, state)
         simulationCache.value.set(mallaId, state)
         return state
+      } else {
+        console.log(`📭 No hay estado guardado para ${mallaId}`)
       }
     } catch (error) {
       console.warn('No se pudo cargar desde localStorage:', error)
@@ -253,20 +254,24 @@ export const useMallas = () => {
     // Si no hay datos guardados, devolver estado inicial
     const initialState = { approvedMaterias: [], isSimulating: false }
     simulationCache.value.set(mallaId, initialState)
+    console.log(`🆕 Creando estado inicial para ${mallaId}:`, initialState)
     return initialState
   }
   
   const clearSimulationCache = (mallaId = null) => {
     if (mallaId) {
       // Limpiar caché de una malla específica
+      console.log(`🗑️ Limpiando caché de simulación para ${mallaId}`)
       simulationCache.value.delete(mallaId)
       try {
         localStorage.removeItem(`malla_simulation_${mallaId}`)
+        console.log(`🗑️ Caché de localStorage limpiado para ${mallaId}`)
       } catch (error) {
         console.warn('No se pudo limpiar localStorage:', error)
       }
     } else {
       // Limpiar todo el caché
+      console.log(`🗑️ Limpiando todo el caché de simulación`)
       simulationCache.value.clear()
       try {
         // Limpiar todas las claves de simulación del localStorage
@@ -278,10 +283,86 @@ export const useMallas = () => {
           }
         }
         keysToRemove.forEach(key => localStorage.removeItem(key))
+        console.log(`🗑️ ${keysToRemove.length} entradas limpiadas del localStorage`)
       } catch (error) {
         console.warn('No se pudo limpiar localStorage:', error)
       }
     }
+  }
+
+  // Funciones para manejar el caché de malla personalizada
+  const saveCustomMalla = (mallaData) => {
+    try {
+      if (!checkLocalStorageQuota()) {
+        throw new Error('localStorage no disponible')
+      }
+      
+      console.log('💾 Guardando malla personalizada:', mallaData)
+      localStorage.setItem('custom_malla_data', JSON.stringify(mallaData))
+      console.log('✅ Malla personalizada guardada en localStorage')
+    } catch (error) {
+      console.warn('No se pudo guardar malla personalizada:', error)
+    }
+  }
+  
+  const loadCustomMalla = () => {
+    try {
+      const stored = localStorage.getItem('custom_malla_data')
+      if (stored) {
+        const mallaData = JSON.parse(stored)
+        console.log('📤 Cargando malla personalizada:', mallaData)
+        return mallaData
+      } else {
+        console.log('📭 No hay malla personalizada guardada')
+      }
+    } catch (error) {
+      console.warn('No se pudo cargar malla personalizada:', error)
+    }
+    
+    // Devolver estructura base si no hay datos guardados
+    return {
+      n1: [
+        ['MATERIA DE EJEMPLO', 'XXXXX', []]
+      ]
+    }
+  }
+  
+  const clearCustomMalla = () => {
+    try {
+      localStorage.removeItem('custom_malla_data')
+      console.log('🗑️ Malla personalizada limpiada del localStorage')
+    } catch (error) {
+      console.warn('No se pudo limpiar malla personalizada:', error)
+    }
+  }
+
+  // Función de debugging para ver el estado del caché
+  const debugCacheState = () => {
+    console.log('🔍 Estado actual del caché de simulación:')
+    console.log('Memory cache:', Object.fromEntries(simulationCache.value))
+    
+    const localStorageKeys = []
+    let customMallaData = null
+    
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        if (key && key.startsWith('malla_simulation_')) {
+          const value = localStorage.getItem(key)
+          localStorageKeys.push({ key, value: JSON.parse(value) })
+        } else if (key === 'custom_malla_data') {
+          customMallaData = JSON.parse(localStorage.getItem(key))
+        }
+      }
+      console.log('LocalStorage simulation cache:', localStorageKeys)
+      if (customMallaData) {
+        console.log('Custom malla data:', customMallaData)
+      }
+    } catch (error) {
+      console.warn('Error leyendo localStorage:', error)
+    }
+    
+    console.log(`LocalStorage size: ${getLocalStorageSize()} KB`)
   }
 
   // No inicializar automáticamente aquí para evitar problemas de contexto
@@ -298,8 +379,13 @@ export const useMallas = () => {
     updateSimulationState,
     loadSimulationFromStorage,
     clearSimulationCache,
+    // Funciones de caché de malla personalizada
+    saveCustomMalla,
+    loadCustomMalla,
+    clearCustomMalla,
     // Funciones de diagnóstico
     checkLocalStorageQuota,
-    getLocalStorageSize
+    getLocalStorageSize,
+    debugCacheState
   }
 }
