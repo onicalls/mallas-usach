@@ -153,7 +153,6 @@ export default {
       // Cargar estado de simulación del caché para esta malla
       if (this.selectedCarrera && this.selectedCarrera !== 'personalizado') {
         const cachedState = this.mallasComposable.loadSimulationFromStorage(this.selectedCarrera)
-        console.log(`Cargando estado para ${this.selectedCarrera}:`, cachedState)
         this.isSimulating = cachedState.isSimulating || false
         this.approvedMaterias = [...(cachedState.approvedMaterias || [])]
         
@@ -163,7 +162,6 @@ export default {
       } else if (this.selectedCarrera === 'personalizado') {
         // Para malla personalizada, cargar estado de simulación también
         const cachedState = this.mallasComposable.loadSimulationFromStorage('personalizado')
-        console.log(`Cargando estado personalizado:`, cachedState)
         this.isSimulating = cachedState.isSimulating || false
         this.approvedMaterias = [...(cachedState.approvedMaterias || [])]
         
@@ -227,8 +225,6 @@ export default {
         
         this.prerequisiteMaterias = this.findPrerequisites(codigo)
       }
-      
-      console.log(`${this.isSimulating ? 'Simulación' : 'Selección'}: ${nombre} (${codigo})`)
     },
     clearSelection() {
       this.selectedMateria = null
@@ -268,8 +264,6 @@ export default {
           isSimulating: this.isSimulating,
           approvedMaterias: [...this.approvedMaterias]
         }
-        console.log(`Guardando estado actual para ${this.selectedCarrera}:`, state)
-        console.log(`LocalStorage size: ${this.mallasComposable.getLocalStorageSize()} KB`)
         this.mallasComposable.updateSimulationState(this.selectedCarrera, state)
       } else if (this.selectedCarrera === 'personalizado') {
         // Para malla personalizada, guardar tanto la estructura como la simulación
@@ -288,7 +282,6 @@ export default {
           approvedMaterias: [...this.approvedMaterias]
         }
         this.mallasComposable.updateSimulationState('personalizado', state)
-        console.log('💾 Datos personalizados guardados:', { malla: this.mallaData, simulacion: state })
       }
     },
     toggleEdit() {

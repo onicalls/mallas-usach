@@ -312,9 +312,8 @@ export default {
       try {
         const fullKey = `custom-malla-${key}`
         localStorage.setItem(fullKey, JSON.stringify(data))
-        console.log(`Guardado en localStorage: ${fullKey}`)
       } catch (error) {
-        console.warn('Error guardando en localStorage:', error)
+        alert('Error: No se pudo guardar los datos localmente.\n\nEs posible que el navegador tenga el almacenamiento local deshabilitado o lleno.')
       }
     },
     
@@ -324,7 +323,6 @@ export default {
         const savedMallaInfo = localStorage.getItem('custom-malla-mallaInfo')
         if (savedMallaInfo) {
           this.mallaInfo = { ...this.mallaInfo, ...JSON.parse(savedMallaInfo) }
-          console.log('Información de malla cargada desde localStorage:', this.mallaInfo)
         }
         
         // Cargar datos de la malla si existe
@@ -333,10 +331,9 @@ export default {
           const parsedData = JSON.parse(savedMallaData)
           // Emitir los datos cargados al componente padre
           this.$emit('malla-updated', parsedData)
-          console.log('Datos de malla cargados desde localStorage:', parsedData)
         }
       } catch (error) {
-        console.warn('Error cargando desde localStorage:', error)
+        alert('Error: No se pudieron cargar los datos guardados localmente.\n\nEs posible que los datos estén corruptos o el navegador tenga restricciones de acceso.')
       }
     },
     
@@ -344,9 +341,8 @@ export default {
       try {
         localStorage.removeItem('custom-malla-mallaInfo')
         localStorage.removeItem('custom-malla-mallaData')
-        console.log('Cache de malla personalizada limpiado')
       } catch (error) {
-        console.warn('Error limpiando localStorage:', error)
+        alert('Error: No se pudieron limpiar los datos guardados localmente.\n\nEs posible que el navegador tenga restricciones de acceso al almacenamiento local.')
       }
     },
     
@@ -567,7 +563,6 @@ export default {
           const jsonData = JSON.parse(e.target.result)
           this.importMallaFromJSON(jsonData)
         } catch (error) {
-          console.error('Error parseando JSON:', error)
           alert('Error: El archivo no contiene un JSON válido.\n\nPor favor verifique el formato del archivo.')
         }
       }
@@ -618,7 +613,6 @@ export default {
         alert(`Malla "${mallaName}" importada exitosamente!`)
         
       } catch (error) {
-        console.error('Error importando malla:', error)
         alert('Error: No se pudo importar la malla.\n\nVerifique que el archivo tenga el formato correcto.')
       }
     },

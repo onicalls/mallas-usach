@@ -29,41 +29,32 @@ export const useMallas = () => {
     isLoading = true
     
     try {
-      console.log('Iniciando carga automática de mallas disponibles...')
       let mallasFiles = []
       const mallas = []
       
       // Estrategia 1: Intentar cargar desde index.json (lista manual actualizable)
       try {
-        console.log('Intentando cargar index.json...')
         const indexURL = buildURL('/mallas/index.json')
-        console.log('URL del index:', indexURL)
         const indexResponse = await fetch(indexURL)
         if (indexResponse.ok) {
           const indexData = await indexResponse.json()
-          console.log('Index.json cargado:', indexData)
           if (indexData.files && Array.isArray(indexData.files)) {
             mallasFiles = indexData.files
-            console.log('Usando archivos del index.json:', mallasFiles)
           }
         }
       } catch (error) {
-        console.log('No se encontró index.json:', error)
+        alert('Advertencia: No se pudo cargar el índice de mallas.\n\nSe utilizará un método alternativo para cargar las mallas disponibles.')
       }
       
-      console.log('Archivos finales a procesar:', mallasFiles)
       
       for (const file of mallasFiles) {
         try {
-          console.log(`Cargando archivo: ${file}`)
           // Construir URL correcta con baseURL
           const url = buildURL(`/mallas/${file}`)
-          console.log(`URL completa: ${url}`)
           const response = await fetch(url)
           
           if (response.ok) {
             const data = await response.json()
-            console.log(`Datos de ${file}:`, data)
             if (data.info && data.info.codigo && data.info.nombre) {
               const mallaItem = {
                 value: file.replace('.json', ''),
@@ -74,15 +65,14 @@ export const useMallas = () => {
                 file: file
               }
               mallas.push(mallaItem)
-              console.log(`Malla agregada:`, mallaItem)
             } else {
-              console.warn(`Archivo ${file} no tiene la estructura esperada (info.codigo, info.nombre)`)
+              alert(`Advertencia: La malla ${file} tiene datos incompletos y será omitida.`)
             }
           } else {
-            console.warn(`No se pudo cargar ${file}: ${response.status}`)
+            alert(`Error: No se pudo cargar la malla ${file}.\n\nRespuesta del servidor: ${response.status}`)
           }
         } catch (error) {
-          console.warn(`Error cargando malla ${file}:`, error)
+          alert(`Error: No se pudo procesar la malla ${file}.\n\nDetalles: ${error.message}`)
         }
       }
       
@@ -91,11 +81,10 @@ export const useMallas = () => {
       
       // Actualizar la instancia global
       globalAvailableMallas.value = mallas
-      console.log('Mallas finales cargadas automáticamente:', mallas.length, mallas)
       
       return mallas
     } catch (error) {
-      console.error('Error cargando mallas disponibles:', error)
+      alert('Error crítico: No se pudieron cargar las mallas disponibles.\n\nPor favor, recargue la página e inténtelo de nuevo.')
       globalAvailableMallas.value = []
       return []
     } finally {
@@ -114,7 +103,6 @@ export const useMallas = () => {
     try {
       // Construir URL correcta con baseURL
       const url = buildURL(`/mallas/${carreraValue}.json`)
-      console.log('Intentando cargar URL:', url) // Debug
       
       const response = await fetch(url)
       if (!response.ok) {
@@ -125,7 +113,7 @@ export const useMallas = () => {
       // Devolver solo la parte de la malla, no la info
       return data.malla || data
     } catch (error) {
-      console.error('Error cargando la malla:', error)
+      alert(`Error: No se pudo cargar la malla seleccionada.\n\nDetalles: ${error.message}`)
       return null
     }
   }
@@ -152,7 +140,7 @@ export const useMallas = () => {
       localStorage.removeItem(test)
       return true
     } catch (e) {
-      console.warn('localStorage no está disponible o está lleno:', e)
+      alert('Advertencia: El almacenamiento local no está disponible.\n\nAlgunas funcionalidades pueden verse limitadas.')
       return false
     }
   }
@@ -167,6 +155,7 @@ export const useMallas = () => {
       }
       return Math.round(total / 1024) // KB
     } catch (e) {
+      alert('Advertencia: No se pudo calcular el tamaño del almacenamiento local.')
       return 0
     }
   }
@@ -191,11 +180,7 @@ export const useMallas = () => {
     const updatedState = { ...currentState, ...newState }
     simulationCache.value.set(mallaId, updatedState)
     
-    console.log(`🔄 Actualizando estado de simulación para ${mallaId}:`)
-    console.log(`   Estado anterior:`, currentState)
-    console.log(`   Nuevos datos:`, newState)  
-    console.log(`   Estado final:`, updatedState)
-    
+   
     // Guardar en localStorage para persistencia
     try {
       if (!checkLocalStorageQuota()) {
@@ -203,14 +188,10 @@ export const useMallas = () => {
       }
       
       const storageSize = getLocalStorageSize()
-      console.log(`📊 Tamaño actual del localStorage: ${storageSize} KB`)
       
       localStorage.setItem(`malla_simulation_${mallaId}`, JSON.stringify(updatedState))
-      console.log(`💾 Estado guardado en localStorage para ${mallaId}`)
     } catch (error) {
-      console.warn('No se pudo guardar en localStorage:', error)
       if (error.name === 'QuotaExceededError') {
-        console.warn('localStorage lleno, limpiando datos antiguos...')
         // Intentar limpiar datos antiguos y volver a intentar
         try {
           const keysToRemove = []
@@ -226,9 +207,8 @@ export const useMallas = () => {
           })
           // Intentar guardar de nuevo
           localStorage.setItem(`malla_simulation_${mallaId}`, JSON.stringify(updatedState))
-          console.log(`Estado guardado después de limpiar localStorage para ${mallaId}`)
         } catch (retryError) {
-          console.error('No se pudo guardar incluso después de limpiar:', retryError)
+          alert('Advertencia: No se pudo guardar el progreso de la simulación.\n\nEs posible que se pierda al refrescar la página.')
         }
       }
     }
@@ -241,37 +221,32 @@ export const useMallas = () => {
       const stored = localStorage.getItem(`malla_simulation_${mallaId}`)
       if (stored) {
         const state = JSON.parse(stored)
-        console.log(`📤 Cargando estado de simulación para ${mallaId}:`, state)
         simulationCache.value.set(mallaId, state)
         return state
       } else {
-        console.log(`📭 No hay estado guardado para ${mallaId}`)
+        // No hay datos guardados, continuar con estado inicial
       }
     } catch (error) {
-      console.warn('No se pudo cargar desde localStorage:', error)
+      alert('Advertencia: No se pudieron cargar los datos de simulación guardados.\n\nSe iniciará con un estado limpio.')
     }
     
     // Si no hay datos guardados, devolver estado inicial
     const initialState = { approvedMaterias: [], isSimulating: false }
     simulationCache.value.set(mallaId, initialState)
-    console.log(`🆕 Creando estado inicial para ${mallaId}:`, initialState)
     return initialState
   }
   
   const clearSimulationCache = (mallaId = null) => {
     if (mallaId) {
       // Limpiar caché de una malla específica
-      console.log(`🗑️ Limpiando caché de simulación para ${mallaId}`)
       simulationCache.value.delete(mallaId)
       try {
         localStorage.removeItem(`malla_simulation_${mallaId}`)
-        console.log(`🗑️ Caché de localStorage limpiado para ${mallaId}`)
       } catch (error) {
-        console.warn('No se pudo limpiar localStorage:', error)
+        alert('Advertencia: No se pudo limpiar completamente la caché de simulación del almacenamiento local.')
       }
     } else {
       // Limpiar todo el caché
-      console.log(`🗑️ Limpiando todo el caché de simulación`)
       simulationCache.value.clear()
       try {
         // Limpiar todas las claves de simulación del localStorage
@@ -283,9 +258,8 @@ export const useMallas = () => {
           }
         }
         keysToRemove.forEach(key => localStorage.removeItem(key))
-        console.log(`🗑️ ${keysToRemove.length} entradas limpiadas del localStorage`)
       } catch (error) {
-        console.warn('No se pudo limpiar localStorage:', error)
+        alert('Advertencia: No se pudo limpiar completamente toda la caché de simulación del almacenamiento local.')
       }
     }
   }
@@ -297,11 +271,9 @@ export const useMallas = () => {
         throw new Error('localStorage no disponible')
       }
       
-      console.log('💾 Guardando malla personalizada:', mallaData)
       localStorage.setItem('custom_malla_data', JSON.stringify(mallaData))
-      console.log('✅ Malla personalizada guardada en localStorage')
     } catch (error) {
-      console.warn('No se pudo guardar malla personalizada:', error)
+      alert('Error: No se pudo guardar la malla personalizada.\n\nPor favor, verifique que el navegador permita el almacenamiento local.')
     }
   }
   
@@ -310,13 +282,12 @@ export const useMallas = () => {
       const stored = localStorage.getItem('custom_malla_data')
       if (stored) {
         const mallaData = JSON.parse(stored)
-        console.log('📤 Cargando malla personalizada:', mallaData)
         return mallaData
       } else {
-        console.log('📭 No hay malla personalizada guardada')
+        // No hay malla personalizada guardada, usar estructura base
       }
     } catch (error) {
-      console.warn('No se pudo cargar malla personalizada:', error)
+      alert('Advertencia: No se pudo cargar la malla personalizada guardada.\n\nSe utilizará una malla de ejemplo.')
     }
     
     // Devolver estructura base si no hay datos guardados
@@ -330,16 +301,13 @@ export const useMallas = () => {
   const clearCustomMalla = () => {
     try {
       localStorage.removeItem('custom_malla_data')
-      console.log('🗑️ Malla personalizada limpiada del localStorage')
     } catch (error) {
-      console.warn('No se pudo limpiar malla personalizada:', error)
+      alert('Advertencia: No se pudo eliminar completamente la malla personalizada del almacenamiento local.')
     }
   }
 
   // Función de debugging para ver el estado del caché
   const debugCacheState = () => {
-    console.log('🔍 Estado actual del caché de simulación:')
-    console.log('Memory cache:', Object.fromEntries(simulationCache.value))
     
     const localStorageKeys = []
     let customMallaData = null
@@ -354,15 +322,13 @@ export const useMallas = () => {
           customMallaData = JSON.parse(localStorage.getItem(key))
         }
       }
-      console.log('LocalStorage simulation cache:', localStorageKeys)
       if (customMallaData) {
-        console.log('Custom malla data:', customMallaData)
+        // Datos de malla personalizada encontrados
       }
     } catch (error) {
-      console.warn('Error leyendo localStorage:', error)
+      alert('Error de depuración: No se pudo analizar el estado de la caché.')
     }
     
-    console.log(`LocalStorage size: ${getLocalStorageSize()} KB`)
   }
 
   // No inicializar automáticamente aquí para evitar problemas de contexto

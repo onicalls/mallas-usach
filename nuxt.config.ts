@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  ssr: false,
+  ssr: true, // Habilitamos SSR para mejor SEO
   nitro: {
     prerender: {
       routes: ['/']
@@ -11,7 +11,28 @@ export default defineNuxtConfig({
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || (process.env.NODE_ENV === 'production' ? '/mallas-usach/' : '/'),
     head: {
+      htmlAttrs: {
+        lang: 'es'
+      },
+      title: 'Mallas USACH',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Visualizador interactivo no oficial de mallas curriculares de la Universidad de Santiago de Chile (USACH). Explora los planes de estudio, prerequisitos y estructura de las carreras.' },
+        { name: 'keywords', content: 'USACH, Universidad de Santiago, mallas curriculares, planes de estudio, carreras, prerequisitos, educación superior' },
+        { name: 'author', content: 'USACH' },
+        { name: 'robots', content: 'index, follow' },
+        { property: 'og:title', content: 'Mallas Curriculares USACH' },
+        { property: 'og:description', content: 'Visualizador interactivo no oficial de mallas curriculares de la Universidad de Santiago de Chile' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:locale', content: 'es_CL' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Mallas Curriculares USACH' },
+        { name: 'twitter:description', content: 'Visualizador interactivo no oficial de mallas curriculares de USACH' }
+      ],
       link: [
+        { rel: 'canonical', href: process.env.NODE_ENV === 'production' ? 'https://onicalls.github.io/mallas-usach/' : 'http://localhost:3000/' },
+        { rel: 'manifest', href: '/mallas-usach/manifest.json' },
         {
           rel: 'preconnect',
           href: 'https://fonts.googleapis.com'
