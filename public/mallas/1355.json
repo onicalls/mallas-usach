@@ -1,0 +1,376 @@
+{
+  "info": {
+    "codigo": "1355",
+    "nombre": "INGENIERIA DE EJECUCION EN MECANICA",
+    "departamento": "MECÁNICA"
+  },
+  "malla": {
+    "n1": [
+      [
+        "CÁLCULO I PARA INGENIERÍA",
+        "10101",
+        [
+          "10107",
+          "10116"
+        ]
+      ],
+      [
+        "ÁLGEBRA I PARA INGENIERÍA",
+        "10102",
+        [
+          "10108",
+          "10110"
+        ]
+      ],
+      [
+        "FÍSICA I PARA INGENIERÍA",
+        "10103",
+        [
+          "10109"
+        ]
+      ],
+      [
+        "TALLER DE DESARROLLO PERSONAL E INTEGRAL",
+        "10104",
+        [
+          "10128"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN A LA INGENIERÍA",
+        "10125",
+        [
+          "11288"
+        ]
+      ],
+      [
+        "MÉTODOS DE ESTUDIO",
+        "10126",
+        [
+          "10130"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "CÁLCULO II PARA INGENIERÍA",
+        "10107",
+        [
+          "10115",
+          "10123",
+          "10127"
+        ]
+      ],
+      [
+        "ÁLGEBRA II PARA INGENIERÍA",
+        "10108",
+        []
+      ],
+      [
+        "FÍSICA II PARA INGENIERÍA",
+        "10109",
+        [
+          "10127",
+          "15100"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE COMPUTACIÓN Y PROGRAMACIÓN",
+        "10110",
+        [
+          "10123",
+          "15104"
+        ]
+      ],
+      [
+        "QUÍMICA GENERAL",
+        "10111",
+        [
+          "15105"
+        ]
+      ]
+    ],
+    "n3": [
+      [
+        "ANÁLISIS ESTADÍSTICO PARA INGENIERÍA",
+        "10115",
+        [
+          "15110"
+        ]
+      ],
+      [
+        "ECUACIONES DIFERENCIALES Y MÉTODOS NUMÉRICOS PARA INGENIERÍA",
+        "10123",
+        [
+          "15108",
+          "15110",
+          "15111"
+        ]
+      ],
+      [
+        "ELECTRICIDAD Y MAGNETISMO PARA INGENIERÍA",
+        "10127",
+        [
+          "15103",
+          "15110"
+        ]
+      ],
+      [
+        "COMUNICACIÓN EFECTIVA",
+        "10128",
+        [
+          "15110"
+        ]
+      ],
+      [
+        "INGLÉS I",
+        "10130",
+        [
+          "10131",
+          "15110"
+        ]
+      ],
+      [
+        "MECÁNICA TÉCNICA",
+        "15100",
+        [
+          "15102",
+          "15110"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "FUNDAMENTOS DE ECONOMÍA",
+        "10116",
+        [
+          "15116",
+          "15117"
+        ]
+      ],
+      [
+        "INGLÉS II",
+        "10131",
+        [
+          "10132",
+          "15116"
+        ]
+      ],
+      [
+        "RESISTENCIA DE MATERIALES",
+        "15102",
+        [
+          "15112",
+          "15116"
+        ]
+      ],
+      [
+        "ELECTROTECNIA Y ELECTRÓNICA",
+        "15103",
+        [
+          "15116"
+        ]
+      ],
+      [
+        "MÉTODOS GRÁFICOS COMPUTACIONALES",
+        "15104",
+        [
+          "15106",
+          "15116"
+        ]
+      ],
+      [
+        "MATERIALES PARA INGENIERÍA",
+        "15105",
+        [
+          "15107",
+          "15116"
+        ]
+      ]
+    ],
+    "n5": [
+      [
+        "INGLÉS III",
+        "10132",
+        [
+          "10133"
+        ]
+      ],
+      [
+        "DIBUJO DE INGENIERÍA",
+        "15106",
+        []
+      ],
+      [
+        "PROCESOS MECÁNICOS I",
+        "15107",
+        [
+          "15113"
+        ]
+      ],
+      [
+        "MECÁNICA DE FLUIDOS",
+        "15108",
+        [
+          "15114",
+          "15115"
+        ]
+      ],
+      [
+        "PREVENCIÓN DE RIESGOS Y SEGURIDAD INDUSTRIAL",
+        "15110",
+        [
+          "11270"
+        ]
+      ],
+      [
+        "TERMODINÁMICA",
+        "15111",
+        [
+          "15114"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "INGLÉS IV",
+        "10133",
+        []
+      ],
+      [
+        "DISEÑO MECÁNICO",
+        "15112",
+        [
+          "15120",
+          "15123"
+        ]
+      ],
+      [
+        "PROCESOS MECÁNICOS II",
+        "15113",
+        [
+          "15119",
+          "15123",
+          "15124",
+          "15127"
+        ]
+      ],
+      [
+        "TRANSFERENCIA DE CALOR",
+        "15114",
+        [
+          "15118",
+          "15120",
+          "15121",
+          "15123"
+        ]
+      ],
+      [
+        "OLEO HIDRÁULICA Y NEUMÁTICA",
+        "15115",
+        [
+          "15119",
+          "15123"
+        ]
+      ],
+      [
+        "INGENIERÍA DE MANTENIMIENTO",
+        "15116",
+        [
+          "15121",
+          "15123"
+        ]
+      ],
+      [
+        "ADMINISTRACIÓN Y GESTIÓN DE EMPRESAS",
+        "15117",
+        [
+          "15122",
+          "15123"
+        ]
+      ]
+    ],
+    "n7": [
+      [
+        "SISTEMAS TÉRMICOS E HIDRÁULICOS",
+        "15118",
+        [
+          "15126",
+          "15192"
+        ]
+      ],
+      [
+        "AUTOMATIZACIÓN",
+        "15119",
+        [
+          "15192"
+        ]
+      ],
+      [
+        "APLICACIONES COMPUTACIONALES",
+        "15120",
+        [
+          "15125",
+          "15192"
+        ]
+      ],
+      [
+        "MOTORES Y MAQUINARIAS",
+        "15121",
+        [
+          "15125",
+          "15192"
+        ]
+      ],
+      [
+        "FORMULACIÓN DE PROYECTOS",
+        "15122",
+        [
+          "15125",
+          "15127",
+          "15128",
+          "15192"
+        ]
+      ],
+      [
+        "SEMINARIO DE TITULACIÓN",
+        "15123",
+        [
+          "15192"
+        ]
+      ]
+    ],
+    "n8": [
+      [
+        "MÁQUINAS HERRAMIENTAS CON CONTROL NUMÉRICO COMPUTARIZADO",
+        "15124",
+        []
+      ],
+      [
+        "TÓPICO DE LA ESPECIALIDAD",
+        "15125",
+        []
+      ],
+      [
+        "ENERGÍA Y MEDIO AMBIENTE",
+        "15126",
+        []
+      ],
+      [
+        "PLANIFICACIÓN Y CONTROL DE LA PRODUCCIÓN",
+        "15127",
+        []
+      ],
+      [
+        "LIDERAZGO Y EMPRENDIMIENTO",
+        "15128",
+        []
+      ],
+      [
+        "TRABAJO DE TITULACIÓN",
+        "15192",
+        []
+      ]
+    ]
+  }
+}

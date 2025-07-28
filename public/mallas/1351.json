@@ -1,0 +1,351 @@
+{
+  "info": {
+    "codigo": "1351",
+    "nombre": "INGENIERIA DE EJECUCION EN ELECTRICIDAD",
+    "departamento": "ELÉCTRICA"
+  },
+  "malla": {
+    "n1": [
+      [
+        "CÁLCULO I PARA INGENIERÍA",
+        "10101",
+        [
+          "10107",
+          "10116"
+        ]
+      ],
+      [
+        "ÁLGEBRA I PARA INGENIERÍA",
+        "10102",
+        [
+          "10108",
+          "10110"
+        ]
+      ],
+      [
+        "FÍSICA I PARA INGENIERÍA",
+        "10103",
+        [
+          "10109"
+        ]
+      ],
+      [
+        "TALLER DE DESARROLLO PERSONAL E INTEGRAL",
+        "10104",
+        [
+          "10128"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN A LA INGENIERÍA",
+        "10125",
+        [
+          "11288"
+        ]
+      ],
+      [
+        "MÉTODOS DE ESTUDIO",
+        "10126",
+        [
+          "10130"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "CÁLCULO II PARA INGENIERÍA",
+        "10107",
+        [
+          "10115",
+          "10123",
+          "10127"
+        ]
+      ],
+      [
+        "ÁLGEBRA II PARA INGENIERÍA",
+        "10108",
+        []
+      ],
+      [
+        "FÍSICA II PARA INGENIERÍA",
+        "10109",
+        [
+          "10127",
+          "11258"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE COMPUTACIÓN Y PROGRAMACIÓN",
+        "10110",
+        [
+          "10123",
+          "11263"
+        ]
+      ],
+      [
+        "QUÍMICA GENERAL",
+        "10111",
+        []
+      ],
+      [
+        "INTRODUCCIÓN A LA INGENIERÍA ELÉCTRICA",
+        "11288",
+        [
+          "11258"
+        ]
+      ]
+    ],
+    "n3": [
+      [
+        "FUNDAMENTOS DE ECONOMÍA",
+        "10116",
+        [
+          "11267"
+        ]
+      ],
+      [
+        "ECUACIONES DIFERENCIALES Y MÉTODOS NUMÉRICOS PARA INGENIERÍA",
+        "10123",
+        [
+          "11259",
+          "11260",
+          "11261",
+          "11265"
+        ]
+      ],
+      [
+        "ELECTRICIDAD Y MAGNETISMO PARA INGENIERÍA",
+        "10127",
+        []
+      ],
+      [
+        "COMUNICACIÓN EFECTIVA",
+        "10128",
+        []
+      ],
+      [
+        "INGLÉS I",
+        "10130",
+        [
+          "10131"
+        ]
+      ],
+      [
+        "CIRCUITOS ELÉCTRICOS I",
+        "11258",
+        [
+          "11259",
+          "11260"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "ANÁLISIS ESTADÍSTICO PARA INGENIERÍA",
+        "10115",
+        []
+      ],
+      [
+        "INGLÉS II",
+        "10131",
+        [
+          "10132"
+        ]
+      ],
+      [
+        "SEÑALES Y SISTEMAS",
+        "11259",
+        [
+          "11262",
+          "11264"
+        ]
+      ],
+      [
+        "CIRCUITOS ELÉCTRICOS II",
+        "11260",
+        [
+          "11262"
+        ]
+      ],
+      [
+        "MÉTODOS GRÁFICOS",
+        "11263",
+        []
+      ]
+    ],
+    "n5": [
+      [
+        "INGLÉS III",
+        "10132",
+        [
+          "10133",
+          "11270"
+        ]
+      ],
+      [
+        "SISTEMAS LÓGICOS Y COMPUTADORES",
+        "11261",
+        [
+          "11270",
+          "11283"
+        ]
+      ],
+      [
+        "ELECTRÓNICA",
+        "11262",
+        [
+          "11269",
+          "11270"
+        ]
+      ],
+      [
+        "MAQUINAS ELÉCTRICAS",
+        "11264",
+        [
+          "11266",
+          "11269",
+          "11270",
+          "11281"
+        ]
+      ],
+      [
+        "COMPUTACIÓN PARA INGENIERÍA ELÉCTRICA",
+        "11265",
+        [
+          "11270"
+        ]
+      ],
+      [
+        "PREVENCIÓN DE RIESGOS - ELECTRICIDAD",
+        "11267",
+        [
+          "11270"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "INGLÉS IV",
+        "10133",
+        [
+          "11275",
+          "11289",
+          "11291"
+        ]
+      ],
+      [
+        "CONTROL AUTOMÁTICO INDUSTRIAL",
+        "11266",
+        [
+          "11273",
+          "11275",
+          "11282",
+          "11284",
+          "11289",
+          "11291"
+        ]
+      ],
+      [
+        "ELECTRÓNICA INDUSTRIAL",
+        "11269",
+        [
+          "11273",
+          "11275",
+          "11289",
+          "11291"
+        ]
+      ],
+      [
+        "TÉCNICAS PARA EL EMPRENDIMIENTO",
+        "11270",
+        [
+          "11275",
+          "11289",
+          "11291"
+        ]
+      ],
+      [
+        "ELECTIVO 1P",
+        "11281",
+        [
+          "11275",
+          "11282",
+          "11283",
+          "11284",
+          "11289",
+          "11291"
+        ]
+      ]
+    ],
+    "n7": [
+      [
+        "TALLER DE PROYECTOS",
+        "11273",
+        [
+          "11286"
+        ]
+      ],
+      [
+        "PLAN DE NEGOCIOS EMPRESARIAL",
+        "11275",
+        []
+      ],
+      [
+        "ELECTIVO 2P",
+        "11282",
+        [
+          "11286",
+          "11287"
+        ]
+      ],
+      [
+        "ELECTIVO 3P",
+        "11283",
+        [
+          "11285",
+          "11286",
+          "11287"
+        ]
+      ],
+      [
+        "ELECTIVO 4P",
+        "11284",
+        []
+      ],
+      [
+        "SEMINARIO DE TITULACIÓN",
+        "11289",
+        [
+          "11290"
+        ]
+      ]
+    ],
+    "n8": [
+      [
+        "ELECTIVO 5P",
+        "11285",
+        []
+      ],
+      [
+        "ELECTIVO 6P",
+        "11286",
+        []
+      ],
+      [
+        "ELECTIVO 7P",
+        "11287",
+        []
+      ],
+      [
+        "TRABAJO DE TITULACIÓN",
+        "11290",
+        []
+      ],
+      [
+        "PRÁCTICA PROFESIONAL",
+        "11291",
+        []
+      ]
+    ]
+  }
+}
