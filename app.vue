@@ -10,7 +10,7 @@ useHead({
   meta: [
     {
       name: 'google-site-verification',
-      content: 'Ea_CtJDd36QWUeXkZzJfyHz-_0-Kl-oQM3m3-NMG0tg'
+      content: 'sCyLrRSROPRhMbz1YFIqJi2c8kOLqfoQyyMjmRP0Voc'
     }
   ]
 })
