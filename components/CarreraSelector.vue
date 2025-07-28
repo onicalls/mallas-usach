@@ -6,9 +6,10 @@
         id="carrera-select"
         v-model="searchText"
         @input="filterMallas"
-        @focus="showDropdown = true"
+        @focus="handleFocus"
         @blur="handleBlur"
         @keydown="handleKeydown"
+        @click="handleClick"
         placeholder="Escribe o selecciona una carrera..."
         class="carrera-input"
         autocomplete="off"
@@ -122,6 +123,17 @@ export default {
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
+    },
+    handleClick() {
+      // Limpiar el contenido al hacer clic para mostrar todas las opciones
+      this.searchText = ''
+      this.filteredMallas = [...this.availableMallas]
+      this.showDropdown = true
+      this.highlightedIndex = -1
+    },
+    handleFocus() {
+      // También limpiar al enfocar si no se ha hecho clic recientemente
+      this.showDropdown = true
     },
     filterMallas() {
       const search = this.normalizeText(this.searchText)

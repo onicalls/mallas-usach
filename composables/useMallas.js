@@ -331,6 +331,38 @@ export const useMallas = () => {
     
   }
 
+  // Funciones para recordar la última malla seleccionada
+  const saveLastSelectedMalla = (mallaId) => {
+    try {
+      if (!checkLocalStorageQuota()) {
+        return
+      }
+      localStorage.setItem('last_selected_malla', mallaId)
+    } catch (error) {
+      console.warn('No se pudo guardar la última malla seleccionada:', error)
+    }
+  }
+
+  const getLastSelectedMalla = () => {
+    try {
+      if (!checkLocalStorageQuota()) {
+        return null
+      }
+      return localStorage.getItem('last_selected_malla')
+    } catch (error) {
+      console.warn('No se pudo cargar la última malla seleccionada:', error)
+      return null
+    }
+  }
+
+  const clearLastSelectedMalla = () => {
+    try {
+      localStorage.removeItem('last_selected_malla')
+    } catch (error) {
+      console.warn('No se pudo limpiar la última malla seleccionada:', error)
+    }
+  }
+
   // No inicializar automáticamente aquí para evitar problemas de contexto
   // La inicialización se hará desde el componente
 
@@ -349,6 +381,10 @@ export const useMallas = () => {
     saveCustomMalla,
     loadCustomMalla,
     clearCustomMalla,
+    // Funciones para recordar la última malla
+    saveLastSelectedMalla,
+    getLastSelectedMalla,
+    clearLastSelectedMalla,
     // Funciones de diagnóstico
     checkLocalStorageQuota,
     getLocalStorageSize,

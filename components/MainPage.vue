@@ -140,17 +140,46 @@ export default {
     // Las mallas ya se cargan automáticamente en el composable
     // pero podemos forzar la carga si es necesario
     await this.mallasComposable.loadAvailableMallas()
+    
+    // Después de cargar las mallas disponibles, intentar cargar la última seleccionada
+    await this.loadLastSelectedMalla()
   },
   beforeUnmount() {
     // Guardar estado antes de que el componente se desmonte
     this.saveCurrentSimulationState()
   },
   methods: {
+    async loadLastSelectedMalla() {
+      const lastMalla = this.mallasComposable.getLastSelectedMalla()
+      
+      if (lastMalla) {
+        // Verificar que la malla existe en las disponibles o que sea 'personalizado'
+        const mallaExists = lastMalla === 'personalizado' || 
+          this.availableMallas.some(malla => malla.value === lastMalla)
+        
+        if (mallaExists) {
+          // Cargar la última malla sin emitir el evento (para evitar guardado duplicado)
+          this.selectedCarrera = lastMalla
+          await this.loadMallaData()
+        } else {
+          // Si la malla ya no existe, limpiar del localStorage
+          this.mallasComposable.clearLastSelectedMalla()
+        }
+      }
+    },
     onCarreraChanged(carrera) {
       // Guardar estado actual antes de cambiar de malla
       this.saveCurrentSimulationState()
       
       this.selectedCarrera = carrera
+      
+      // Guardar la malla seleccionada para recordarla la próxima vez
+      if (carrera) {
+        this.mallasComposable.saveLastSelectedMalla(carrera)
+      } else {
+        this.mallasComposable.clearLastSelectedMalla()
+      }
+      
       this.loadMallaData()
     },
     async loadMallaData() {
@@ -415,6 +444,9 @@ export default {
         this.isSimulating = false
         this.clearSelection()
         this.calculateEnabledFromApproved()
+        
+        // NO limpiar la selección de carrera, mantenerla guardada
+        // this.mallasComposable.saveLastSelectedMalla(this.selectedCarrera)
       } else if (this.selectedCarrera === 'personalizado') {
         // Para malla personalizada, limpiar tanto la simulación como la estructura
         this.mallasComposable.clearSimulationCache('personalizado')
@@ -430,7 +462,20 @@ export default {
         this.isSimulating = false
         this.clearSelection()
         this.calculateEnabledFromApproved()
+        
+        // Para malla personalizada, mantener la selección también
+        // this.mallasComposable.saveLastSelectedMalla('personalizado')
       }
+    },
+    
+    // Método para limpiar completamente todo (incluyendo la selección de malla)
+    clearAll() {
+      this.selectedCarrera = ''
+      this.mallaData = null
+      this.approvedMaterias = []
+      this.isSimulating = false
+      this.clearSelection()
+      this.mallasComposable.clearLastSelectedMalla()
     }
   }
 }
