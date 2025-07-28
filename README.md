@@ -1,75 +1,7 @@
-# Nuxt Minimal Starter
+# Mallas Interactivas USACH
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Proyecto open-souce para visualizar las mallas de la Universidad de Santiago de Chile.
 
-## Setup
+La intención de este proyecto es tener una aplicación web de mallas centralizada, independiente de la facultad o departamento del estudiantado. De esta manera no se depende de los servidores de la USACH para tener conocimiento de qué ramos se pueden tomar si apruebo uno, o qué prerrequisitos se requieren para cursar un ramo. Además, también permite simular el avance de la carrera a lo largo de los semestres.
 
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Revisa la aplicación en [onicalls.github.io/mallas-usach/](onicalls.github.io/mallas-usach/)

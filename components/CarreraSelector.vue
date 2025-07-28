@@ -1,22 +1,37 @@
 <template>
   <div class="selector-container">
     <label for="carrera-select">Selecciona una carrera:</label>
-    <select 
-      id="carrera-select" 
-      :value="selectedCarrera" 
-      @change="$emit('carrera-changed', $event.target.value)"
-      class="carrera-select"
-    >
-      <option value="">Selecciona una carrera</option>
-      <option 
-        v-for="malla in availableMallas" 
-        :key="malla.value" 
-        :value="malla.value"
-      >
-        {{ malla.label }}
-      </option>
-      <option value="personalizado">Personalizado</option>
-    </select>
+    <div class="autocomplete-container">
+      <input
+        id="carrera-select"
+        v-model="searchText"
+        @input="filterMallas"
+        @focus="showDropdown = true"
+        @blur="handleBlur"
+        @keydown="handleKeydown"
+        placeholder="Escribe o selecciona una carrera..."
+        class="carrera-input"
+        autocomplete="off"
+      />
+      <div v-if="showDropdown && (filteredMallas.length > 0 || searchText.length > 0)" class="dropdown">
+        <div
+          v-for="(malla, index) in filteredMallas"
+          :key="malla.value"
+          :class="['dropdown-item', { 'highlighted': highlightedIndex === index }]"
+          @mousedown="selectMalla(malla)"
+          @mouseenter="highlightedIndex = index"
+        >
+          {{ malla.label }}
+        </div>
+        <div
+          :class="['dropdown-item', { 'highlighted': highlightedIndex === filteredMallas.length }]"
+          @mousedown="selectMalla({ value: 'personalizado', label: 'Personalizado' })"
+          @mouseenter="highlightedIndex = filteredMallas.length"
+        >
+          Personalizado
+        </div>
+      </div>
+    </div>
     
     <!-- Toggle de Editar - Solo aparece cuando la carrera es personalizada -->
     <div v-if="selectedCarrera === 'personalizado'" class="simulate-toggle-container">
@@ -69,7 +84,111 @@ export default {
       default: true
     }
   },
-  emits: ['carrera-changed', 'toggle-simulate', 'toggle-edit']
+  emits: ['carrera-changed', 'toggle-simulate', 'toggle-edit', 'clear-simulation'],
+  data() {
+    return {
+      searchText: '',
+      showDropdown: false,
+      filteredMallas: [],
+      highlightedIndex: -1
+    }
+  },
+  watch: {
+    selectedCarrera: {
+      immediate: true,
+      handler(newValue) {
+        if (newValue) {
+          if (newValue === 'personalizado') {
+            this.searchText = 'Personalizado'
+          } else {
+            const selectedMalla = this.availableMallas.find(m => m.value === newValue)
+            this.searchText = selectedMalla ? selectedMalla.label : ''
+          }
+        } else {
+          this.searchText = ''
+        }
+      }
+    },
+    availableMallas: {
+      immediate: true,
+      handler() {
+        this.filteredMallas = [...this.availableMallas]
+      }
+    }
+  },
+  methods: {
+    normalizeText(text) {
+      return text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+    },
+    filterMallas() {
+      const search = this.normalizeText(this.searchText)
+      if (search === '') {
+        this.filteredMallas = [...this.availableMallas]
+      } else {
+        this.filteredMallas = this.availableMallas.filter(malla =>
+          this.normalizeText(malla.label).includes(search)
+        )
+      }
+      this.highlightedIndex = -1
+      this.showDropdown = true
+    },
+    selectMalla(malla) {
+      this.searchText = malla.label
+      this.showDropdown = false
+      this.highlightedIndex = -1
+      this.$emit('carrera-changed', malla.value)
+    },
+    handleBlur() {
+      // Delay hiding dropdown to allow click events
+      setTimeout(() => {
+        this.showDropdown = false
+        this.highlightedIndex = -1
+        
+        // If no valid selection, revert to current selection
+        if (this.selectedCarrera) {
+          if (this.selectedCarrera === 'personalizado') {
+            this.searchText = 'Personalizado'
+          } else {
+            const selectedMalla = this.availableMallas.find(m => m.value === this.selectedCarrera)
+            this.searchText = selectedMalla ? selectedMalla.label : ''
+          }
+        } else {
+          this.searchText = ''
+        }
+      }, 150)
+    },
+    handleKeydown(event) {
+      if (!this.showDropdown) return
+
+      const totalItems = this.filteredMallas.length + 1 // +1 for "Personalizado"
+
+      switch (event.key) {
+        case 'ArrowDown':
+          event.preventDefault()
+          this.highlightedIndex = Math.min(this.highlightedIndex + 1, totalItems - 1)
+          break
+        case 'ArrowUp':
+          event.preventDefault()
+          this.highlightedIndex = Math.max(this.highlightedIndex - 1, -1)
+          break
+        case 'Enter':
+          event.preventDefault()
+          if (this.highlightedIndex >= 0 && this.highlightedIndex < this.filteredMallas.length) {
+            this.selectMalla(this.filteredMallas[this.highlightedIndex])
+          } else if (this.highlightedIndex === this.filteredMallas.length) {
+            this.selectMalla({ value: 'personalizado', label: 'Personalizado' })
+          }
+          break
+        case 'Escape':
+          this.showDropdown = false
+          this.highlightedIndex = -1
+          break
+      }
+    }
+  }
 }
 </script>
 
@@ -147,31 +266,75 @@ export default {
   white-space: nowrap;
 }
 
-.carrera-select {
+.autocomplete-container {
+  position: relative;
+  min-width: 300px;
+}
+
+.carrera-input {
   padding: 10px 15px;
-  font-size: flex;
+  font-size: 16px;
   border: 2px solid #007a3d;
   border-radius: 8px;
   background-color: #007a3d;
-  min-width: 300px;
+  width: 100%;
   cursor: pointer;
   transition: border-color 0.2s;
   color: white;
+  box-sizing: border-box;
+}
+
+.carrera-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.carrera-input:focus {
+  outline: none;
+  border-color: #007a3d;
+  box-shadow: 0 0 0 3px rgba(0, 145, 73, 0.2);
+  cursor: text;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 2px solid #007a3d;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item.highlighted {
+  background-color: #f0f8f0;
+  color: #007a3d;
 }
 
 /* Responsive: en móviles, ancho completo */
 @media (max-width: 768px) {
-  .carrera-select {
+  .autocomplete-container {
     min-width: 250px;
     width: 100%;
     max-width: 300px;
   }
-}
-
-.carrera-select:focus {
-  outline: none;
-  border-color: #007a3d;
-  box-shadow: 0 0 0 3px rgba(0, 145, 73, 0.2);
 }
 
 .clear-simulation-container {

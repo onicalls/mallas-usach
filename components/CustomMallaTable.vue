@@ -183,6 +183,11 @@
     </div>
     </div>
     
+    <!-- Leyenda -->
+    <MallaLegend 
+      :is-simulating="isSimulating"
+    />
+    
     <!-- Botón de exportar JSON -->
     <div class="export-section">
       <div class="export-buttons">
@@ -233,8 +238,13 @@
 </template>
 
 <script>
+import MallaLegend from './MallaLegend.vue'
+
 export default {
   name: 'CustomMallaTable',
+  components: {
+    MallaLegend
+  },
   props: {
     mallaData: {
       type: Object,
@@ -826,19 +836,12 @@ export default {
 .export-warning {
   color: #dc2626;
   font-size: 14px;
-  margin-top: 10px;
-  font-style: italic;
+  margin-top: 10px; 
 }
 
 .cache-info {
   color: #059669;
   font-size: 13px;
-  margin-top: 10px;
-  font-style: italic;
-  background-color: rgba(5, 150, 105, 0.1);
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid rgba(5, 150, 105, 0.2);
 }
 
 .table-container {

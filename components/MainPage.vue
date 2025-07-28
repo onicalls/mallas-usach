@@ -49,9 +49,15 @@
       @materia-selected="selectMateria"
     />
     
-    <!-- Leyenda -->
+    <!-- Leyenda para malla personalizada en modo no-editable -->
     <MallaLegend 
-      v-if="mallaData"
+      v-if="mallaData && selectedCarrera === 'personalizado' && !isEditing"
+      :is-simulating="isSimulating"
+    />
+    
+    <!-- Leyenda - Solo para mallas normales -->
+    <MallaLegend 
+      v-if="mallaData && selectedCarrera !== 'personalizado'"
       :is-simulating="isSimulating"
     />
   </div>
