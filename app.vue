@@ -6,12 +6,18 @@
 </template>
 
 <script setup>
+const { getIconPath } = useAppPaths()
+
 useHead({
   meta: [
     {
       name: 'google-site-verification',
       content: 'sCyLrRSROPRhMbz1YFIqJi2c8kOLqfoQyyMjmRP0Voc'
     }
+  ],
+  link: [
+    { rel: 'icon', type: 'image/png', sizes: '72x72', href: getIconPath('icon-72x72.png') },
+    { rel: 'icon', type: 'image/png', sizes: '144x144', href: getIconPath('icon-144x144.png') }
   ],
   script: [
     {

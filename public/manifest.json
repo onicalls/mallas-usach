@@ -2,16 +2,40 @@
   "name": "Mallas USACH",
   "short_name": "Mallas USACH",
   "description": "Visualizador interactivo no oficial de mallas curriculares de la Universidad de Santiago de Chile",
-  "start_url": "/mallas-usach/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1f2937",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/mallas-usach/favicon.ico",
+      "src": "./favicon.ico",
       "sizes": "any",
       "type": "image/x-icon"
+    },
+    {
+      "src": "./icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["education", "utilities"],
