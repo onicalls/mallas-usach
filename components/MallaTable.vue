@@ -18,7 +18,7 @@
               class="materia"
               :class="{
                 'approved': isSimulating && approvedMaterias.includes(materia[1]),
-                'prerequisite': prerequisiteMaterias.includes(materia[1]) && !approvedMaterias.includes(materia[1]),
+                'prerequisite': prerequisiteMaterias.includes(materia[1]) && (!isSimulating || !approvedMaterias.includes(materia[1])),
                 'selected': selectedMateria === materia[1],
                 'enabled': enabledMaterias.includes(materia[1]) && !prerequisiteMaterias.includes(materia[1]) && selectedMateria !== materia[1] && (!isSimulating || !approvedMaterias.includes(materia[1]))
               }"

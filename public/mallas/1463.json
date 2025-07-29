@@ -1,0 +1,460 @@
+{
+  "info": {
+    "codigo": "1463",
+    "nombre": "INGENIERÍA CIVIL EN INFORMÁTICA",
+    "departamento": "INFORMÁTICA"
+  },
+  "malla": {
+    "n1": [
+      [
+        "CÁLCULO I PARA INGENIERÍA",
+        "10138",
+        [
+          "10142",
+          "10157"
+        ]
+      ],
+      [
+        "ÁLGEBRA I PARA INGENIERÍA",
+        "10139",
+        [
+          "10143"
+        ]
+      ],
+      [
+        "FÍSICA I PARA INGENIERÍA",
+        "10140",
+        [
+          "10144"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN AL DISEÑO EN INGENIERÍA",
+        "10141",
+        [
+          "10145",
+          "13301",
+          "13302"
+        ]
+      ],
+      [
+        "INGENIERÍA Y SOSTENIBILIDA",
+        "13344",
+        [
+          "13313"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "CÁLCULO II PARA INGENIERÍA",
+        "10142",
+        [
+          "10146",
+          "13305"
+        ]
+      ],
+      [
+        "ÁLGEBRA II PARA INGENIERÍA",
+        "10143",
+        [
+          "13308"
+        ]
+      ],
+      [
+        "FÍSICA II PARA INGENIERÍA",
+        "10144",
+        [
+          "13305"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE PROGRAMACIÓN PARA INGENIERÍA",
+        "10145",
+        [
+          "13345",
+          "13346",
+          "13307",
+          "13311"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN A LA INGENIERÍA INFORMÁTICA",
+        "13301",
+        [
+          "13346"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE COMPUTACIÓN",
+        "13302",
+        [
+          "13345",
+          "13346",
+          "13308",
+          "13309"
+        ]
+      ]
+    ],
+    "n3": [
+      [
+        "INGLÉS I",
+        "10130",
+        [
+          "10131"
+        ]
+      ],
+      [
+        "CÁLCULO III PARA INGENIERÍA",
+        "10146",
+        [
+          "13307",
+          "13311",
+          "13322"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE ECONOMÍA PARA INGENIERÍA",
+        "10157",
+        [
+          "10148",
+          "13320"
+        ]
+      ],
+      [
+        "ELECTRICIDAD, MAGNETISMO Y ONDAS",
+        "13305",
+        [
+          "13309"
+        ]
+      ],
+      [
+        "ESTRUCTURA DE DATOS",
+        "13345",
+        [
+          "13310",
+          "13312"
+        ]
+      ],
+      [
+        "DISEÑO DE ALGORITMOS",
+        "13346",
+        [
+          "13310",
+          "13312"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "INGLÉS II",
+        "10131",
+        [
+          "10132",
+          "13316"
+        ]
+      ],
+      [
+        "TALLER DE DISEÑO EN INGENIERÍA",
+        "10148",
+        [
+          "13320"
+        ]
+      ],
+      [
+        "ECUACIONES DIFERENCIALES Y MÉTODOS NUMÉRICOS",
+        "13307",
+        [
+          "13321"
+        ]
+      ],
+      [
+        "DISEÑO DE BASES DE DATOS",
+        "13308",
+        [
+          "13317",
+          "13319"
+        ]
+      ],
+      [
+        "ARQUITECTURA DE COMPUTADORES",
+        "13309",
+        [
+          "13313"
+        ]
+      ],
+      [
+        "PARADIGMAS DE PROGRAMACIÓN",
+        "13310",
+        [
+          "13314",
+          "13315",
+          "13318"
+        ]
+      ]
+    ],
+    "n5": [
+      [
+        "INGLÉS III",
+        "10132",
+        [
+          "10133",
+          "13326"
+        ]
+      ],
+      [
+        "ESTADÍSTICA COMPUTACIONAL",
+        "13311",
+        [
+          "13316"
+        ]
+      ],
+      [
+        "TEORÍA DE LA COMPUTACIÓN",
+        "13312",
+        [
+          "13322"
+        ]
+      ],
+      [
+        "SISTEMAS OPERATIVOS",
+        "13313",
+        [
+          "13317",
+          "13323"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE INGENIERÍA DE SOFTWARE",
+        "13314",
+        [
+          "13319",
+          "13324"
+        ]
+      ],
+      [
+        "TALLER DE PROGRAMACIÓN",
+        "13315",
+        [
+          "13325"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "INGLÉS IV",
+        "10133",
+        [
+          "13328",
+          "13332"
+        ]
+      ],
+      [
+        "ESTADÍSTICA INFERENCIAL",
+        "13316",
+        [
+          "13321"
+        ]
+      ],
+      [
+        "BASE DE DATOS AVANZADAS",
+        "13317",
+        [
+          "13329",
+          "13331"
+        ]
+      ],
+      [
+        "PROCESAMIENTO DE SEÑALES E IMÁGENES",
+        "13318",
+        [
+          "13323"
+        ]
+      ],
+      [
+        "TÉCNICAS DE INGENIERÍA DE SOFTWARE",
+        "13319",
+        [
+          "13331"
+        ]
+      ],
+      [
+        "EVALUACIÓN DE PROYECTOS",
+        "13320",
+        [
+          "13324",
+          "13325"
+        ]
+      ]
+    ],
+    "n7": [
+      [
+        "MODELOS Y SIMULACIÓN",
+        "13321",
+        [
+          "13327",
+          "13334"
+        ]
+      ],
+      [
+        "MÉTODOS DE OPTIMIZACIÓN",
+        "13322",
+        [
+          "13327",
+          "13334"
+        ]
+      ],
+      [
+        "REDES DE COMUNICACIÓN",
+        "13323",
+        [
+          "13328",
+          "13329",
+          "13335"
+        ]
+      ],
+      [
+        "GESTIÓN DE PROYECTOS TI",
+        "13324",
+        [
+          "13347",
+          "13335"
+        ]
+      ],
+      [
+        "INNOVACIÓN Y EMPRENDIMIENTO",
+        "13325",
+        [
+          "13335"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL I",
+        "13326",
+        [
+          "13338"
+        ]
+      ]
+    ],
+    "n8": [
+      [
+        "ANÁLISIS DE DATOS",
+        "13327",
+        [
+          "13333"
+        ]
+      ],
+      [
+        "CIBERSEGURIDAD",
+        "13328",
+        [
+          "13336"
+        ]
+      ],
+      [
+        "SISTEMAS DISTRIBUIDOS Y PARALELOS",
+        "13329",
+        []
+      ],
+      [
+        "PROYECTO DE INGENIERÍA DE SOFTWARE",
+        "13331",
+        [
+          "13337",
+          "13341"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL II",
+        "13332",
+        [
+          "13338",
+          "13341"
+        ]
+      ],
+      [
+        "GESTIÓN DE SERVICIOS TI",
+        "13347",
+        [
+          "13336"
+        ]
+      ]
+    ],
+    "n9": [
+      [
+        "APRENDIZAJE AUTOMÁTICO",
+        "13333",
+        [
+          "13343"
+        ]
+      ],
+      [
+        "TÓPICO DE ESPECIALIDAD I",
+        "13334",
+        [
+          "13339"
+        ]
+      ],
+      [
+        "TÓPICO DE ESPECIALIDAD II",
+        "13335",
+        [
+          "13340"
+        ]
+      ],
+      [
+        "GOBERNANZA Y GESTION TI",
+        "13336",
+        [
+          "13343"
+        ]
+      ],
+      [
+        "ELECTIVO I",
+        "13337",
+        [
+          "13338",
+          "13342"
+        ]
+      ]
+    ],
+    "n10": [
+      [
+        "SEMINARIO DE INFORMÁTICA",
+        "13338",
+        [
+          "13343"
+        ]
+      ],
+      [
+        "TÓPICO DE ESPECIALIDAD III",
+        "13339",
+        []
+      ],
+      [
+        "TÓPICO DE ESPECIALIDAD IV",
+        "13340",
+        []
+      ],
+      [
+        "ELECTIVO INTERDISCIPLINARIO",
+        "13341",
+        []
+      ],
+      [
+        "ELECTIVO II",
+        "13342",
+        [
+          "13343"
+        ]
+      ]
+    ],
+    "n11": [
+      [
+        "TRABAJO DE TITULACIÓN",
+        "13343",
+        []
+      ]
+    ]
+  }
+}
