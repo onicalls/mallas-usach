@@ -2,11 +2,11 @@ export const useAppPaths = () => {
   const baseURL = ''
   
   const getIconPath = (iconName) => {
-    return `${baseURL}/${iconName}`
+    return `/${iconName}`
   }
   
   const getManifestPath = () => {
-    return `${baseURL}/manifest.json`
+    return `/manifest.json`
   }
   
   return {

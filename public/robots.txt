@@ -2,7 +2,7 @@ User-Agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://onicalls.github.io/mallas-usach/sitemap.xml
+Sitemap: https://mallas.onicalls.cl/sitemap.xml
 
 # Allow search engines to crawl and index all content
 Disallow:

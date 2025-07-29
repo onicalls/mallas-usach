@@ -38,7 +38,6 @@ jobs:
         run: bun run generate
         env:
           NODE_ENV: production
-          NUXT_APP_BASE_URL: /mallas-usach/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
