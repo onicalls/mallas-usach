@@ -2,14 +2,14 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  ssr: true, // Habilitamos SSR para mejor SEO
+  ssr: true,
   nitro: {
     prerender: {
       routes: ['/']
     }
   },
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || (process.env.NODE_ENV === 'production' ? '/mallas-usach/' : '/'),
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       htmlAttrs: {
         lang: 'es'
@@ -31,15 +31,15 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'Visualizador interactivo no oficial de mallas curriculares de USACH' }
       ],
       link: [
-        { rel: 'canonical', href: process.env.NODE_ENV === 'production' ? 'https://onicalls.github.io/mallas-usach/' : 'http://localhost:3000/' },
-        { rel: 'manifest', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/manifest.json' },
-        { rel: 'icon', type: 'image/x-icon', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/favicon.ico' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/icon-192x192.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/icon-192x192.png' },
-        { rel: 'icon', type: 'image/png', sizes: '192x192', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/icon-192x192.png' },
-        { rel: 'shortcut icon', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/favicon.ico' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/icon-192x192.png' },
-        { rel: 'apple-touch-icon', sizes: '192x192', href: (process.env.NODE_ENV === 'production' ? '/mallas-usach' : '') + '/icon-192x192.png' },
+        { rel: 'canonical', href: process.env.NODE_ENV === 'production' ? 'https://mallas.onicalls.cl/' : 'http://localhost:3000/' },
+        { rel: 'manifest', href: '/manifest.json' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/icon-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/icon-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon-192x192.png' },
+        { rel: 'shortcut icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/icon-192x192.png' },
+        { rel: 'apple-touch-icon', sizes: '192x192', href: '/icon-192x192.png' },
         {
           rel: 'preconnect',
           href: 'https://fonts.googleapis.com'
