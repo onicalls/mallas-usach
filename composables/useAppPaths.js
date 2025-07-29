@@ -1,5 +1,5 @@
 export const useAppPaths = () => {
-  const baseURL = process.env.NODE_ENV === 'production' ? '/mallas-usach' : ''
+  const baseURL = ''
   
   const getIconPath = (iconName) => {
     return `${baseURL}/${iconName}`

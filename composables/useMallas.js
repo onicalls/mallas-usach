@@ -8,19 +8,15 @@ let isLoading = false
 const simulationCache = ref(new Map())
 
 export const useMallas = () => {
-  // Obtener la configuración del runtime de Nuxt
-  const config = useRuntimeConfig()
-  const baseURL = config.app?.baseURL || '/'
-  
   // Función helper para construir URLs correctas
   const buildURL = (path) => {
     // Asegurar que path comience con /
     if (!path.startsWith('/')) {
       path = '/' + path
     }
-    // Si baseURL termina con /, no duplicar
-    const cleanBaseURL = baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL
-    return cleanBaseURL + path
+    
+    // Para dominio personalizado en producción, usar siempre rutas absolutas simples
+    return path
   }
   
   // Cargar dinámicamente las mallas disponibles

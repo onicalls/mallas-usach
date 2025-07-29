@@ -27,7 +27,7 @@ useHead({
         '@type': 'WebApplication',
         'name': 'Mallas Curriculares USACH',
         'description': 'Visualizador interactivo de mallas curriculares de la Universidad de Santiago de Chile',
-        'url': process.env.NODE_ENV === 'production' ? 'https://onicalls.github.io/mallas-usach/' : 'http://localhost:3000/',
+        'url': process.env.NODE_ENV === 'production' ? 'https://mallas.onicalls.cl/' : 'http://localhost:3000/',
         'applicationCategory': 'EducationalApplication',
         'operatingSystem': 'Web Browser',
         'author': {
