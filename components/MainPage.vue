@@ -60,6 +60,9 @@
       v-if="mallaData && selectedCarrera !== 'personalizado'"
       :is-simulating="isSimulating"
     />
+    
+    <!-- Footer -->
+    <Footer />
   </div>
 </template>
 
@@ -68,6 +71,7 @@ import CarreraSelector from './CarreraSelector.vue'
 import MallaTable from './MallaTable.vue'
 import MallaLegend from './MallaLegend.vue'
 import CustomMallaTable from './CustomMallaTable.vue'
+import Footer from './Footer.vue'
 import { useMallas } from '~/composables/useMallas.js'
 
 export default {
@@ -76,7 +80,8 @@ export default {
     CarreraSelector,
     MallaTable,
     MallaLegend,
-    CustomMallaTable
+    CustomMallaTable,
+    Footer
   },
   data() {
     return {
