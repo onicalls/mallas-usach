@@ -1,0 +1,318 @@
+{
+  "info": {
+    "codigo": "7042",
+    "nombre": "TECNOLOGÍA EN TELECOMUNICACIONES",
+    "departamento": "TECNOLOGÍAS INDUSTRIALES"
+  },
+  "malla": {
+    "n1": [
+      [
+        "INGLÉS 1",
+        "711",
+        [
+          "712"
+        ]
+      ],
+      [
+        "ÁLGEBRA",
+        "50101",
+        [
+          "52103",
+          "52105",
+          "52113"
+        ]
+      ],
+      [
+        "DESARROLLO DE HABILIDADES LABORALES",
+        "50102",
+        [
+          "50107"
+        ]
+      ],
+      [
+        "ADMINISTRACIÓN",
+        "50103",
+        [
+          "50108"
+        ]
+      ],
+      [
+        "CÁLCULO",
+        "50104",
+        [
+          "50105",
+          "52105",
+          "52113"
+        ]
+      ],
+      [
+        "QUÍMICA GENERAL",
+        "52101",
+        [
+          "52104"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN A LA ESPECIALIDAD TECNOLÓGICA",
+        "52102",
+        [
+          "52111",
+          "52110"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "INGLÉS II",
+        "712",
+        [
+          "713"
+        ]
+      ],
+      [
+        "CÁLCULO AVANZADO",
+        "50105",
+        [
+          "52108",
+          "52114"
+        ]
+      ],
+      [
+        "RESPONSABILIDAD SOCIAL Y SUSTENTABILIDAD",
+        "50107",
+        [
+          "52106"
+        ]
+      ],
+      [
+        "DESARROLLO TECNOLÓGICO E INNOVACIÓN",
+        "50108",
+        [
+          "52107"
+        ]
+      ],
+      [
+        "FÍSICA GENERAL",
+        "52103",
+        []
+      ],
+      [
+        "BIOLOGÍA AMBIENTAL",
+        "52104",
+        []
+      ],
+      [
+        "CIRCUITOS ELÉCTRICOS",
+        "52105",
+        [
+          "52109"
+        ]
+      ]
+    ],
+    "n3": [
+      [
+        "INGLÉS III",
+        "713",
+        [
+          "714"
+        ]
+      ],
+      [
+        "PROCESOS Y OPERACIONES",
+        "52106",
+        [
+          "52112"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE FORMULACIÓN Y EVALUACIÓN DE PROYECTOS TECNOLÓGICOS",
+        "52107",
+        [
+          "50109"
+        ]
+      ],
+      [
+        "ELECTROMAGNETISMO",
+        "52108",
+        []
+      ],
+      [
+        "ELECTRÓNICA",
+        "52109",
+        [
+          "52114"
+        ]
+      ],
+      [
+        "REDES DE ACCESO Y TRANSPORTE",
+        "52110",
+        []
+      ],
+      [
+        "REDES DE DATOS I",
+        "52111",
+        [
+          "52116",
+          "52115"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "INGLÉS IV",
+        "714",
+        [
+          "52123"
+        ]
+      ],
+      [
+        "GESTIÓN DE EMPRESA CON BASE TECNOLÓGICA",
+        "50109",
+        []
+      ],
+      [
+        "SISTEMAS INTEGRADOS DE GESTIÓN",
+        "52112",
+        []
+      ],
+      [
+        "APLICACIONES COMPUTACIONALES DE LA ESPECIALIDAD",
+        "52113",
+        [
+          "52120",
+          "52119"
+        ]
+      ],
+      [
+        "SEÑALES Y SISTEMAS",
+        "52114",
+        [
+          "52121",
+          "52120"
+        ]
+      ],
+      [
+        "DESARROLLO DE SERVICIOS",
+        "52115",
+        [
+          "52118",
+          "52117"
+        ]
+      ],
+      [
+        "REDES DE DATOS II",
+        "52116",
+        [
+          "52122"
+        ]
+      ]
+    ],
+    "n5": [
+      [
+        "TELEFONÍA",
+        "52117",
+        [
+          "52124",
+          "52128",
+          "52125"
+        ]
+      ],
+      [
+        "SERVICIOS IP",
+        "52118",
+        [
+          "52124",
+          "52128",
+          "52126",
+          "52125"
+        ]
+      ],
+      [
+        "PROGRAMACIÓN DE APLICACIONES",
+        "52119",
+        [
+          "52124",
+          "52128",
+          "52125"
+        ]
+      ],
+      [
+        "TECNOLOGÍA DIGITAL Y MICROPROCESADORES",
+        "52120",
+        [
+          "52124",
+          "52128",
+          "52127",
+          "52125"
+        ]
+      ],
+      [
+        "SISTEMAS ÓPTICOS",
+        "52121",
+        [
+          "52124",
+          "52128",
+          "52126",
+          "52125"
+        ]
+      ],
+      [
+        "REDES DE DATOS III",
+        "52122",
+        [
+          "52124",
+          "52129",
+          "52128",
+          "52125"
+        ]
+      ],
+      [
+        "INGLÉS PARA TELECOMUNICACIONES I",
+        "52123",
+        [
+          "52124",
+          "52130",
+          "52128",
+          "52125"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "PROCESO DE INDUCCIÓN LABORAL",
+        "52124",
+        []
+      ],
+      [
+        "PROCESO DE TITULACIÓN",
+        "52125",
+        []
+      ],
+      [
+        "ELECTIVO PROFESIONAL",
+        "52126",
+        []
+      ],
+      [
+        "TECNOLOGÍA DIGITAL APLICADA",
+        "52127",
+        []
+      ],
+      [
+        "CONVERGENCIA DE REDES Y SERVICIOS",
+        "52128",
+        []
+      ],
+      [
+        "REDES DE DATOS AVANZADAS",
+        "52129",
+        []
+      ],
+      [
+        "INGLÉS PARA TELECOMUNICACIONES II",
+        "52130",
+        []
+      ]
+    ]
+  }
+}
