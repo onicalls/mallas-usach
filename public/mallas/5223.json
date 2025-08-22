@@ -1,0 +1,680 @@
+{
+  "info": {
+    "codigo": "5223",
+    "nombre": "PSICOLOGÍA",
+    "departamento": "PSICOLOGÍA"
+  },
+  "malla": {
+    "n1": [
+      [
+        "INGLÉS I",
+        "711",
+        [
+          "712",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE INVESTIGACIÓN EN PSICOLOGÍA",
+        "45300",
+        [
+          "45306",
+          "45316",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "45301\nINTRODUCCIÓN A LA DISCIPLINA PSICOLÓGICA",
+        "45301",
+        [
+          "45307",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "BASES BIOLÓGICAS DE LA PSICOLOGÍA",
+        "45302",
+        [
+          "45309",
+          "45308",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "FUNDAMENTOS FILOSÓFICOS DE LA PSICOLOGÍA",
+        "45303",
+        [
+          "45338",
+          "45375",
+          "45374",
+          "45372",
+          "45373"
+        ]
+      ],
+      [
+        "FUNDAMENTOS TEÓRICO SOCIALES DE LA PSICOLOGÍA",
+        "45304",
+        [
+          "45314",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL I",
+        "45305",
+        [
+          "45310",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "INGLÉS II",
+        "712",
+        [
+          "713",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "METODOLOGÍA CUANTITATIVA I",
+        "45306",
+        [
+          "45311",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "TEORÍAS Y PERSPECTIVAS PSICOLÓGICAS I",
+        "45307",
+        [
+          "45313",
+          "45312",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "APRENDIZAJE MEMORIA Y COGNICIÓN",
+        "45308",
+        [
+          "45338",
+          "45375",
+          "45374",
+          "45372",
+          "45373"
+        ]
+      ],
+      [
+        "AFECTIVIDAD Y MOTIVACIÓN",
+        "45309",
+        [
+          "45338",
+          "45375",
+          "45374",
+          "45372",
+          "45373"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL II",
+        "45310",
+        [
+          "45315",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ]
+    ],
+    "n3": [
+      [
+        "INGLÉS III",
+        "713",
+        [
+          "714",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "METODOLOGÍA CUANTITATIVA II",
+        "45311",
+        [
+          "45324",
+          "45338",
+          "45333",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "TEORÍAS Y PERSPECTIVAS PSICOLÓGICAS II",
+        "45312",
+        [
+          "45317",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "PSICOLOGÍA DEL CICLO VITAL I",
+        "45313",
+        [
+          "45318",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "PSICOLOGÍA SOCIAL I",
+        "45314",
+        [
+          "45319",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL III",
+        "45315",
+        [
+          "45320",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "INGLÉS IV",
+        "714",
+        [
+          "45338",
+          "45375",
+          "45374",
+          "45372",
+          "45373"
+        ]
+      ],
+      [
+        "METODOLOGÍA CUALITATIVA I",
+        "45316",
+        [
+          "45370",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "TEORÍAS DE LA PERSONALIDAD I",
+        "45317",
+        [
+          "45322",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "PSICOLOGÍA DEL CICLO VITAL II",
+        "45318",
+        [
+          "45367",
+          "45366",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "PSICOLOGÍA SOCIAL II",
+        "45319",
+        [
+          "45330",
+          "45338",
+          "45336",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL IV",
+        "45320",
+        [
+          "45325",
+          "45338",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ]
+    ],
+    "n5": [
+      [
+        "TEORÍAS DE LA PERSONALIDAD II",
+        "45322",
+        [
+          "45371",
+          "45375",
+          "45374",
+          "45372",
+          "45373"
+        ]
+      ],
+      [
+        "CONSTRUCCIÓN DE TEST Y PRUEBAS PSICOLÓGICAS",
+        "45324",
+        [
+          "45372",
+          "45375",
+          "45374",
+          "45373"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL V",
+        "45325",
+        [
+          "45331",
+          "45375",
+          "45374",
+          "45372",
+          "45373"
+        ]
+      ],
+      [
+        "CURSO SELLO I",
+        "45326",
+        [
+          "45372",
+          "45375",
+          "45374",
+          "45373"
+        ]
+      ],
+      [
+        "PSICOPATOLOGÍA INFANTO JUVENIL",
+        "45366",
+        [
+          "45327",
+          "45368",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "PSIQUIATRIA INFANTO JUVENIL",
+        "45367",
+        [
+          "45327",
+          "45369",
+          "45374",
+          "45373",
+          "45375",
+          "45372"
+        ]
+      ],
+      [
+        "METODOLOGÍA CUALITATIVA II",
+        "45370",
+        [
+          "45333",
+          "45375",
+          "45374",
+          "45372",
+          "45373"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "PSICOLOGÍA EDUCACIONAL",
+        "45327",
+          [
+            "45358", "45357", "45356", "45343", "45340", "45342", "45348", "45349", "45350", "45351", "45359", "45341", "45354", "45346", "45345", "45353", "45362", "45361", "45372", "45374", "45373", "45375"
+          ]
+      ],
+      [
+        "PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES",
+        "45330",
+          [
+            "45358", "45357", "45356", "45343", "45340", "45342", "45348", "45349", "45350", "45351", "45359", "45341", "45354", "45346", "45345", "45353", "45362", "45361", "45372", "45374", "45373", "45375"
+          ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL VI",
+        "45331",
+          [
+            "45372", "45375", "45374", "45373"
+          ]
+      ],
+      [
+        "CURSO SELLO II",
+        "45332",
+          [
+            "45372", "45375", "45374", "45373"
+          ]
+      ],
+      [
+        "PSICOPATOLOGÍA ADULTOS",
+        "45368",
+          [
+            "45337", "45335", "45334", "45374", "45373", "45375", "45372"
+          ]
+      ],
+      [
+        "PSIQUIATRIA ADULTOS",
+        "45369",
+          [
+            "45337", "45335", "45334", "45374", "45373", "45375", "45372"
+          ]
+      ],
+      [
+        "PSICOLOGÍA CLÍNICA",
+        "45371",
+          [
+            "45358", "45357", "45356", "45343", "45340", "45342", "45348", "45349", "45350", "45351", "45359", "45341", "45354", "45346", "45345", "45353", "45362", "45361", "45372", "45374", "45373", "45375"
+          ]
+      ]
+    ],
+    "n7": [
+      [
+        "TRABAJO DE GRADO",
+        "45333",
+          [
+            "45372", "45375", "45374", "45373"
+          ]
+      ],
+      [
+        "EVALUACIÓN PSICOLÓGICA PSICOMETRICA",
+        "45334",
+          [
+            "45339", "45375", "45374", "45372", "45373"
+          ]
+      ],
+      [
+        "EVALUACIÓN PSICOLÓGICA PROYECTIVA",
+        "45335",
+          [
+            "45339", "45375", "45374", "45372", "45373"
+          ]
+      ],
+      [
+        "PSICOLOGÍA COMUNITARIA",
+        "45336",
+          [
+            "45358", "45357", "45356", "45343", "45340", "45342", "45348", "45349", "45350", "45351", "45359", "45341", "45354", "45346", "45345", "45353", "45362", "45361", "45372", "45374", "45373", "45375"
+          ]
+      ],
+      [
+        "PSICOFARMACOLOGÍA",
+        "45337",
+          [
+            "45372", "45375", "45374", "45373"
+          ]
+      ],
+      [
+        "DISEÑO Y EVALUACIÓN DE PROYECTOS DE INTERVENCIÓN PSICOSOCIAL",
+        "45338",
+          [
+            "45372", "45375", "45374", "45373"
+          ]
+      ]
+    ],
+    "n8": [
+      [
+        "DIAGNOSTICO PSICOLÓGICO",
+        "45339",
+          [
+            "45372", "45375", "45374", "45373"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA CLÍNICA I",
+        "45340",
+          [
+            "45372"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA CLINICA II",
+        "45341",
+          [
+            "45372"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDICACIÓN PSICOLOGÍA CLÍNICA III",
+        "45342",
+          [
+            "45372"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA CLÍNICA IV",
+        "45343",
+          [
+            "45372"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA EDUCACIONAL I",
+        "45348",
+          [
+            "45373"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA EDUCACIONAL II",
+        "45349",
+          [
+            "45373"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA EDUCACIONAL III",
+        "45350",
+          [
+            "45373"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA EDUCACIONAL IV",
+        "45351",
+          [
+            "45373"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES I",
+        "45356",
+          [
+            "45374"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES II",
+        "45357",
+          [
+            "45374"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES III",
+        "45358",
+          [
+            "45374"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES IV",
+        "45359",
+          [
+            "45374"
+          ]
+      ]
+    ],
+    "n9": [
+      [
+        "PRÁCTICA DE ESPECIALIZACIÓN PSICOLOGÍA CLÍNICA",
+        "45344",
+          [
+            "45372"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA CLÍNICA V",
+        "45345",
+          [
+            "45372"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA CLÍNICA VI",
+        "45346",
+          [
+            "45372"
+          ]
+      ],
+      [
+        "PRÁCTICA DE ESPECIALIZACIÓN PSICOLOGÍA EDUCACIONAL",
+        "45352",
+          [
+            "45373"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA EDUCACIONAL V",
+        "45353",
+          [
+            "45373"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA EDUCACIONAL VI",
+        "45354",
+          [
+            "45373"
+          ]
+      ],
+      [
+        "PRÁCTICA DE ESPECIALIZACIÓN PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES",
+        "45360",
+          [
+            "45374"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES V",
+        "45361",
+          [
+            "45374"
+          ]
+      ],
+      [
+        "CURSO DE PROFUNDIZACIÓN PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES VI",
+        "45362",
+          [
+            "45374"
+          ]
+      ],
+      [
+        "INTERVENCIÓN PSICOSOCIAL",
+        "45364",
+          [
+            "45372", "45375", "45374", "45373"
+          ]
+      ]
+    ],
+    "n10": [
+      [
+        "PRÁCTICA PROFESIONAL PSICOLOGÍA CLÍNICA",
+        "45372",
+        []
+      ],
+      [
+        "PRÁCTICA PROFESIONAL PSICOLOGÍA EDUCACIONAL",
+        "45373",
+        []
+      ],
+      [
+        "PRÁCTICA PROFESIONAL PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES",
+        "45374",
+        []
+      ],
+      [
+        "TRABAJO DE TITULACIÓN",
+        "45375",
+        []
+      ]
+    ]
+  }
+}
