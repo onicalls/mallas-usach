@@ -1,0 +1,578 @@
+{
+  "info": {
+    "codigo": "6543",
+    "nombre": "PEDAGOGÍA EN EDUCACIÓN GENERAL BÁSICA",
+    "departamento": "EDUCACIÓN"
+  },
+  "malla": {
+    "n1": [
+      [
+        "ABORDAJES INTERSECCIONALES DE LAS INFANCIAS",
+        "42200",
+        [
+          "42206",
+          "42268"
+        ]
+      ],
+      [
+        "42201\nFUNDAMENTOS DE LA EDUCACIÓN PARA LA JUSTICIA SOCIAL",
+        "42201",
+        [
+          "42214",
+          "42268"
+        ]
+      ],
+      [
+        "FILOSOFÍA Y ÉTICA DE LA EDUCACIÓN Y LAS INFANCIAS",
+        "42202",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE LA ENSEÑANZA DE LA MATEMÁTICA EN LA ESCUELA BÁSICA",
+        "42203",
+        [
+          "42208",
+          "42268"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE LA ENSEÑANZA DE LA LENGUA EN LA ESCUELA BÁSICA",
+        "42204",
+        [
+          "42209",
+          "42223",
+          "42231",
+          "42268"
+        ]
+      ],
+      [
+        "INICIACIÓN A LA LECTO ESCRITURA ACADÉMICA Y EXPRESIÓN ORAL",
+        "42205",
+        [
+          "42268"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "ENFOQUES SOCIO-COGNITIVOS Y SOCIOCONTRUCTIVISTAS DEL APRENDIZAJE EN LA INFANCIA",
+        "42206",
+        [
+          "42213",
+          "42220",
+          "42249",
+          "42257",
+          "42265",
+          "42268"
+        ]
+      ],
+      [
+        "SISTEMA EDUCATIVO CHILENO",
+        "42207",
+        [
+          "42220",
+          "42229",
+          "42268"
+        ]
+      ],
+      [
+        "NÚMEROS, OPERACIONES Y SU ENSEÑANZA",
+        "42208",
+        [
+          "42215",
+          "42222",
+          "42268"
+        ]
+      ],
+      [
+        "LECTURA Y SU ESCRITURA INICIAL Y SU ENSEÑANZA",
+        "42209",
+        [
+          "42216",
+          "42239",
+          "42268"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE LA ENSEÑANZA DE LA HISTORIA, LA GEOGRAFÍA Y LAS CIENCIAS SOCIALES EN LA ESCUELA BÁSIC",
+        "42210",
+        [
+          "42217",
+          "42224",
+          "42232",
+          "42268"
+        ]
+      ],
+      [
+        "CIENCIA Y SOCIEDAD: ENFOQUES PARA LA ENSEÑANZA DE LAS CIENCIAS NATURALES EN LA ESCUELA BÁSICA",
+        "42211",
+        [
+          "42218",
+          "42225",
+          "42233",
+          "42268"
+        ]
+      ],
+      [
+        "COMPETENCIAS DIGITALES",
+        "42212",
+        [
+          "42245",
+          "42268"
+        ]
+      ]
+    ],
+    "n3": [
+      [
+        "TENDENCIAS Y CORRIENTES DEL SABER PEDAGÓGICO",
+        "42213",
+        [
+          "42221",
+          "42236",
+          "42268"
+        ]
+      ],
+      [
+        "INTERCULTURALIDAD E INCLUSIÓN EDUCATIVA",
+        "42214",
+        [
+          "42229",
+          "42268"
+        ]
+      ],
+      [
+        "ÁLGEBRA Y FUNCIONES Y SU ENSEÑANZA",
+        "42215",
+        [
+          "42230",
+          "42268"
+        ]
+      ],
+      [
+        "LECTURA COMPRENSIVA Y LITERATURA INFANTIL Y SU ENSEÑANZA",
+        "42216",
+        [
+          "42239",
+          "42268"
+        ]
+      ],
+      [
+        "TIEMPO HISTÓRICO, PROCESOS SOCIALES Y SU ENSEÑANZA",
+        "42217",
+        [
+          "42240",
+          "42268"
+        ]
+      ],
+      [
+        "FENÓMENOS BIOLÓGICOS Y SU ENSEÑANZA",
+        "42218",
+        [
+          "42241",
+          "42268"
+        ]
+      ],
+      [
+        "INGLÉS I",
+        "42219",
+        [
+          "42226",
+          "42268"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "PRÁCTICA INICIAL",
+        "42220",
+        [
+          "42227",
+          "42269",
+          "42268"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DEL DISEÑO Y DESARROLLO CURRICULAR",
+        "42221",
+        [
+          "42228",
+          "42268"
+        ]
+      ],
+      [
+        "GEOMETRÍA Y SU ENSEÑANZA",
+        "42222",
+        [
+          "42238",
+          "42268"
+        ]
+      ],
+      [
+        "LA ESCRITURA Y SU ENSEÑANZA",
+        "42223",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "ESPACIO GEOGRÁFICO, PROBLEMAS SOCIOAMBIENTALES Y SU ENSEÑANZA",
+        "42224",
+        [
+          "42240",
+          "42268"
+        ]
+      ],
+      [
+        "FENÓMENOS QUÍMICOS Y SU ENSEÑANZA",
+        "42225",
+        [
+          "42241",
+          "42268"
+        ]
+      ],
+      [
+        "INGLÉS II",
+        "42226",
+        [
+          "42234",
+          "42268"
+        ]
+      ]
+    ],
+    "n5": [
+      [
+        "PRÁCTICA INTERMEDIA I",
+        "42227",
+        [
+          "42235",
+          "42268"
+        ]
+      ],
+      [
+        "EVALUACIÓN PARA EL APRENDIZAJE",
+        "42228",
+        [
+          "42236",
+          "42245",
+          "42268"
+        ]
+      ],
+      [
+        "LIDERAZGO PEDAGÓGICO Y CLIMA DE AULA",
+        "42229",
+        [
+          "42253",
+          "42268"
+        ]
+      ],
+      [
+        "PROBABILIDADES Y, ESTADÍSTICA Y SU ENSEÑANZA",
+        "42230",
+        [
+          "42238",
+          "42268"
+        ]
+      ],
+      [
+        "LA ORALIDAD Y SU ENSEÑANZA",
+        "42231",
+        [
+          "42239",
+          "42268"
+        ]
+      ],
+      [
+        "INFANCIA Y FORMACIÓN PARA LA CUIDADANÍA EN LA ESCUELA BÁSICA",
+        "42232",
+        [
+          "42240",
+          "42268"
+        ]
+      ],
+      [
+        "FENÓMENOS FÍSICOS, DE LA TIERRA Y EL UNIVERSO Y SU ENSEÑANZA",
+        "42233",
+        [
+          "42241",
+          "42268"
+        ]
+      ],
+      [
+        "INGLÉS III",
+        "42234",
+        [
+          "42242",
+          "42268"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "PRÁCTICA INTERMEDIA II",
+        "42235",
+        [
+          "42243",
+          "42268"
+        ]
+      ],
+      [
+        "INVESTIGACIÓN EDUCATIVA",
+        "42236",
+        [
+          "42244",
+          "42252",
+          "42268"
+        ]
+      ],
+      [
+        "ELECTIVO I",
+        "42237",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "DISEÑO DIDÁCTICO Y EVALUACIÓN PARA EL APRENDIZAJE DE LAS MATEMÁTICAS",
+        "42238",
+        [
+          "42248",
+          "42268"
+        ]
+      ],
+      [
+        "DISEÑO DIDÁCTICO Y EVALUACIÓN PARA EL APRENDIZAJE DE LA LENGUA",
+        "42239",
+        [
+          "42247",
+          "42268"
+        ]
+      ],
+      [
+        "DISEÑO DIDÁCTICO Y EVALUACIÓN PARA EL APRENDIZAJE DE LA HISTORIA, LA GEOGRAFÍA Y LAS CS SOCIALES",
+        "42240",
+        [
+          "42255",
+          "42261",
+          "42268"
+        ]
+      ],
+      [
+        "DISEÑO DIDÁCTICO Y EVALUACIÓN PARA EL APRENDIZAJE DE LAS CIENCIAS EXPERIMENTALES",
+        "42241",
+        [
+          "42256",
+          "42262",
+          "42268"
+        ]
+      ],
+      [
+        "INGLÉS IV",
+        "42242",
+        [
+          "42268"
+        ]
+      ]
+    ],
+    "n7": [
+      [
+        "PRÁCTICA AVANZADA I",
+        "42243",
+        [
+          "42251",
+          "42268"
+        ]
+      ],
+      [
+        "INNOVACIÓN EDUCATIVA",
+        "42244",
+        [
+          "42252",
+          "42268"
+        ]
+      ],
+      [
+        "COMPETENCIA DIGITAL DOCENTE",
+        "42245",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "ELECTIVO II",
+        "42246",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "MENCIÓN I (A)",
+        "42247",
+        [
+          "42263",
+          "42268"
+        ]
+      ],
+      [
+        "MENCIÓN I (B)",
+        "42248",
+        [
+          "42264",
+          "42268"
+        ]
+      ],
+      [
+        "LAS ARTES VISUALES Y SU ENSEÑANZA",
+        "42249",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL I",
+        "42250",
+        [
+          "42268"
+        ]
+      ]
+    ],
+    "n8": [
+      [
+        "PRÁCTICA AVANZADA II",
+        "42251",
+        [
+          "42259",
+          "42268"
+        ]
+      ],
+      [
+        "SEMINARIO DE GRADO",
+        "42252",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "PROFESOR JEFE Y COMUNIDAD EDUCATIVA",
+        "42253",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "ELECTIVO III",
+        "42254",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "MENCIÓN II (A)",
+        "42255",
+        [
+          "42263",
+          "42268"
+        ]
+      ],
+      [
+        "MENCIÓN II (B)",
+        "42256",
+        [
+          "42264",
+          "42268"
+        ]
+      ],
+      [
+        "LAS ARTES MUSICALES Y SU ENSEÑANZA",
+        "42257",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL II",
+        "42258",
+        [
+          "42268"
+        ]
+      ]
+    ],
+    "n9": [
+      [
+        "PRÁCTICA PROFESIONAL I",
+        "42259",
+        [
+          "42268",
+          "42267"
+        ]
+      ],
+      [
+        "ELECTIVO IV",
+        "42260",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "MENCIÓN III (A)",
+        "42261",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "MENCIÓN III (B)",
+        "42262",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "PROYECTO DE INTEGRACIÓN MENCIÓN A",
+        "42263",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "PROYECTO DE INTEGRACIÓN MENCIÓN B",
+        "42264",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "LA EDUCACIÓN TECNOLÓGICA Y SU ENSEÑANZA",
+        "42265",
+        [
+          "42268"
+        ]
+      ],
+      [
+        "FORMACIÓN INTEGRAL III",
+        "42266",
+        [
+          "42268"
+        ]
+      ]
+    ],
+    "n10": [
+      [
+        "PRÁCTICA PROFESIONAL II",
+        "42267",
+        []
+      ],
+      [
+        "SEMINARIO DE TÍTULO",
+        "42268",
+        []
+      ],
+      [
+        "FORMACIÓN INTEGRAL IV (COMUNICACIÓN EFECTIVA)",
+        "42269",
+        []
+      ]
+    ]
+  }
+}
