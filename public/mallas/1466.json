@@ -1,0 +1,493 @@
+{
+  "info": {
+    "codigo": "1466",
+    "nombre": "INGENIERIA CIVIL EN METALURGIA",
+    "departamento": "METALURGIA"
+  },
+  "malla": {
+    "n1": [
+      [
+        "CÁLCULO I PARA INGENIERÍA",
+        "10138",
+        [
+          "10142",
+          "16115",
+          "10157"
+        ]
+      ],
+      [
+        "ÁLGEBRA I PARA INGENIERÍA",
+        "10139",
+        [
+          "10143",
+          "16115"
+        ]
+      ],
+      [
+        "FÍSICA I PARA INGENIERÍA",
+        "10140",
+        [
+          "10144",
+          "16115"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN AL DISEÑO EN INGENIERÍA",
+        "10141",
+        [
+          "10145",
+          "16115"
+        ]
+      ],
+      [
+        "INTRODUCCIÓN A LA INGENIERÍA METALURGÍA",
+        "16111",
+        [
+          "16115"
+        ]
+      ]
+    ],
+    "n2": [
+      [
+        "CÁLCULO II PARA INGENIERÍA",
+        "10142",
+        [
+          "10146",
+          "10155",
+          "10156",
+          "10158"
+        ]
+      ],
+      [
+        "ÁLGEBRA II PARA INGENIERÍA",
+        "10143",
+        [
+          "10155"
+        ]
+      ],
+      [
+        "FÍSICA II PARA INGENIERÍA",
+        "10144",
+        [
+          "10156"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE PROGRAMACIÓN PARA INGENIERÍA",
+        "10145",
+        [
+          "16156"
+        ]
+      ],
+      [
+        "QUÍMICA GENERAL PARA INGENIERÍA",
+        "10149",
+        [
+          "16115"
+        ]
+      ]
+    ],
+    "n3": [
+      [
+        "CÁLCULO III PARA INGENIERÍA",
+        "10146",
+        [
+          "16117",
+          "16122",
+          "16121"
+        ]
+      ],
+      [
+        "ECUACIONES DIFERENCIALES PARA INGENIERÍA",
+        "10155",
+        [
+          "10159",
+          "16119",
+          "16122",
+          "16121",
+          "16117"
+        ]
+      ],
+      [
+        "ELECTRICIDAD Y MAGNETISMO PARA INGENIERÍA",
+        "10156",
+        [
+          "16117",
+          "16122",
+          "16121"
+        ]
+      ],
+      [
+        "FUNDAMENTOS DE ECONOMÍA PARA INGENIERÍA",
+        "10157",
+        [
+          "10148",
+          "16121",
+          "16122",
+          "16117"
+        ]
+      ],
+      [
+        "COMPLEMENTOS DE QUÍMICA I",
+        "16115",
+        [
+          "16120",
+          "16119",
+          "16122",
+          "16121",
+          "16117"
+        ]
+      ]
+    ],
+    "n4": [
+      [
+        "TALLER DE DISEÑO EN INGENIERÍA",
+        "10148",
+        [
+          "16125",
+          "16130",
+          "16128"
+        ]
+      ],
+      [
+        "ANÁLISIS ESTADÍSTICO PARA INGENIERÍA",
+        "10158",
+        [
+          "16117",
+          "16130",
+          "16128"
+        ]
+      ],
+      [
+        "MÉTODOS NUMÉRICOS PARA INGENIERÍA",
+        "10159",
+        [
+          "16130",
+          "16128"
+        ]
+      ],
+      [
+        "TERMODINÁMICA METALÚRGICA I",
+        "16119",
+        [
+          "16124",
+          "16129",
+          "16130",
+          "16128"
+        ]
+      ],
+      [
+        "COMPLEMENTOS DE QUÍMICA II",
+        "16120",
+        [
+          "16130",
+          "16128"
+        ]
+      ],
+      [
+        "MÉTODOS GRÁFICOS COMPUTACIONALES",
+        "16156",
+        [
+          "16130",
+          "16128"
+        ]
+      ]
+    ],
+    "n5": [
+      [
+        "INGLÉS I",
+        "10130",
+        [
+          "10131",
+          "16134"
+        ]
+      ],
+      [
+        "TÉCNICAS EXPERIMENTALES EN INGENIERÍA",
+        "16117",
+        [
+          "16128",
+          "16134"
+        ]
+      ],
+      [
+        "CIENCIA E INGENIERÍA DE MATERIALES I",
+        "16121",
+        [
+          "16126",
+          "16127",
+          "16134"
+        ]
+      ],
+      [
+        "RESISTENCIA DE MATERIALES",
+        "16122",
+        [
+          "16127",
+          "16134"
+        ]
+      ],
+      [
+        "TERMODINÁMICA METALÚRGICA II",
+        "16124",
+        [
+          "16134",
+          "16132"
+        ]
+      ],
+      [
+        "ADMINISTRACIÓN",
+        "16125",
+        [
+          "16131",
+          "16134"
+        ]
+      ]
+    ],
+    "n6": [
+      [
+        "INGLÉS II",
+        "10131",
+        [
+          "10132"
+        ]
+      ],
+      [
+        "CIENCIA E INGENIERÍA DE MATERIALES II",
+        "16126",
+        [
+          "16132"
+        ]
+      ],
+      [
+        "COMPORTAMIENTO MECÁNICO DE SÓLIDOS",
+        "16127",
+        [
+          "16133"
+        ]
+      ],
+      [
+        "BALANCE DE PROCESOS METALÚRGICOS",
+        "16128",
+        [
+          "16135"
+        ]
+      ],
+      [
+        "CINÉTICA METALÚRGICA",
+        "16129",
+        [
+          "16138",
+          "16140"
+        ]
+      ],
+      [
+        "RECURSOS DE LA TIERRA",
+        "16130",
+        [
+          "16135",
+          "16136",
+          "16140"
+        ]
+      ],
+      [
+        "FINANZAS",
+        "16131",
+        [
+          "16141"
+        ]
+      ]
+    ],
+    "n7": [
+      [
+        "INGLÉS III",
+        "10132",
+        [
+          "10133"
+        ]
+      ],
+      [
+        "METALURGIA FÍSICA",
+        "16132",
+        [
+          "16137"
+        ]
+      ],
+      [
+        "METALURGIA MECÁNICA",
+        "16133",
+        [
+          "16142"
+        ]
+      ],
+      [
+        "FLUIDODINÁMICA",
+        "16134",
+        [
+          "16138"
+        ]
+      ],
+      [
+        "PROCESAMIENTO DE MINERALES",
+        "16135",
+        [
+          "16139"
+        ]
+      ],
+      [
+        "GESTIÓN AMBIENTAL EN METALURGIA",
+        "16136",
+        [
+          "16141"
+        ]
+      ]
+    ],
+    "n8": [
+      [
+        "INGLÉS IV",
+        "10133",
+        []
+      ],
+      [
+        "TRANSFORMACIONES DE FASES",
+        "16137",
+        [
+          "16143",
+          "16142"
+        ]
+      ],
+      [
+        "TRANSFERENCIA DE CALOR Y MASA",
+        "16138",
+        [
+          "16144",
+          "16143"
+        ]
+      ],
+      [
+        "CONCENTRACIÓN DE MINERALES",
+        "16139",
+        [
+          "16146",
+          "16144"
+        ]
+      ],
+      [
+        "HIDROMETALURGIA",
+        "16140",
+        [
+          "16145",
+          "16150"
+        ]
+      ],
+      [
+        "EVALUACIÓN DE PROYECTOS",
+        "16141",
+        [
+          "16146",
+          "16154"
+        ]
+      ]
+    ],
+    "n9": [
+      [
+        "INGENIERÍA DE MATERIALES",
+        "16142",
+        [
+          "16147",
+          "16148",
+          "16153",
+          "16152",
+          "16149"
+        ]
+      ],
+      [
+        "FUNDICIÓN Y MANUFCTURA",
+        "16143",
+        [
+          "16148",
+          "16153",
+          "16152",
+          "16149"
+        ]
+      ],
+      [
+        "PIROMETALURGIA",
+        "16144",
+        [
+          "16150",
+          "16153",
+          "16152",
+          "16151"
+        ]
+      ],
+      [
+        "ELECTROMETALURGIA",
+        "16145",
+        [
+          "16151",
+          "16152",
+          "16153"
+        ]
+      ],
+      [
+        "ELECTIVO I",
+        "16146",
+        [
+          "16153"
+        ]
+      ]
+    ],
+    "n10": [
+      [
+        "DISEÑO Y SELECCIÓN DE MATERIALES",
+        "16147",
+        []
+      ],
+      [
+        "METALURGIA DE LAS FUNDICIONES",
+        "16148",
+        []
+      ],
+      [
+        "TÓPICOS EN INGENIERÍA DE MATERIALES",
+        "16149",
+        []
+      ],
+      [
+        "OPTIMIZACIÓN Y CONTROL DE PROCESOS",
+        "16150",
+        []
+      ],
+      [
+        "TÓPICOS EN METALURGIA EXTRACTIVA",
+        "16151",
+        []
+      ],
+      [
+        "LABORATORIO INTEGRADO DE METALURGIA",
+        "16152",
+        []
+      ],
+      [
+        "PROYECTO DE TÍTULO",
+        "16153",
+        [
+          "16155"
+        ]
+      ],
+      [
+        "ELECTIVO II",
+        "16154",
+        []
+      ]
+    ],
+    "n11": [
+      [
+        "TRABAJO DE TITULACIÓN",
+        "16155",
+        []
+      ]
+    ]
+  }
+}
